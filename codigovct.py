@@ -118,3 +118,4 @@ if search_term:
         st.write("No se encontraron coincidencias con la palabra clave.")
 else:
     st.write("Introduce una palabra clave para buscar.")
+    st.write(df)
