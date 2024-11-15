@@ -44,7 +44,7 @@ search_widget = widgets.Text(
     placeholder='Escribe tu búsqueda...',
     description='Buscar:'
 )
-search_widget.observe(youtube_style_search, names='value')
+search_widget.observe(advanced_search, names='value')
 display(search_widget)
 
 # Display the selected keyword and search term (for demonstration)
