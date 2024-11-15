@@ -1,7 +1,6 @@
-pandas
-streamlit
-matplotlib
-numpy
-re
 ipywidgets
-display
+IPython
+pandas
+numpy
+matplotlib
+streamlit
