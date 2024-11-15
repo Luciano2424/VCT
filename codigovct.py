@@ -1,11 +1,3 @@
-import matplotlib.pyplot as plt
-import pandas as pd
-import numpy as np
-
-df = pd.read_csv("valorant champions istanbul.csv")
-
-display(df)
-
 import ipywidgets as widgets
 from IPython.display import display
 import re
