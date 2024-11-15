@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
-df = pd.read_csv("/content/valorant champions istanbul.csv")
+df = pd.read_csv("/content/valorant_champions_istanbul.csv")
 
 display(df)
 
@@ -13,7 +13,7 @@ import pandas as pd
 import numpy as np
 import matplotlib as plt
 
-df = pd.read_csv("/content/valorant champions istanbul.csv")
+df = pd.read_csv("/content/valorant_champions_istanbul.csv")
 
 # Define keyword-column associations
 keyword_associations = {
@@ -75,7 +75,7 @@ import pandas as pd
 import streamlit as st
 
 # cargar los datos
-df = pd.read_csv("/content/valorant champions istanbul.csv")
+df = pd.read_csv("/content/valorant_champions_istanbul.csv")
 
 # diccionario de asociaciones de palabras clave con las columnas
 keyword_associations = {
