@@ -3,3 +3,5 @@ streamlit
 matplotlib
 numpy
 re
+ipywidgets
+display
