@@ -1,12 +1,13 @@
 import streamlit as st
 import pandas as pd
-Cargar el DataFrame desde el archivo CSV
+
+
 df = pd.read_csv("valorant champions istanbul.csv")
 Título de la aplicación
 st.title("Buscador de Datos de Jugadores")
-Entrada de texto para buscar palabras clave
+
 keyword = st.text_input("Ingrese la palabra clave:", "")
-Mapa de palabras clave a nombres de columnas
+
 keywords_mapping = {
 "jugador": "player",
 "equipo": "team",
@@ -25,7 +26,7 @@ keywords_mapping = {
 }
 if keyword in keywords_mapping:
 column_name = keywords_mapping[keyword]
-Filtrar el DataFrame según la palabra clave
+
 filtered_data = df[df[column_name].astype(str).str.contains(keyword, case=False, na=False)]
 if not filtered_data.empty:
 st.write("Resultados encontrados:")
