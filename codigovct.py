@@ -3,7 +3,7 @@ import pandas as pd
 
 
 df = pd.read_csv("valorant champions istanbul.csv")
-Título de la aplicación
+
 st.title("Buscador de Datos de Jugadores")
 
 keyword = st.text_input("Ingrese la palabra clave:", "")
