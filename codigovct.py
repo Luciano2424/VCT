@@ -4,7 +4,7 @@ import pandas as pd
 df = pd.read_csv("valorant champions istanbul.csv")
 
 st.title("Buscador de Datos de Jugadores")
-Entrada de texto para buscar palabras clave
+
 keyword = st.text_input("Ingrese la palabra clave:", "")
 
 keywords_mapping = {
