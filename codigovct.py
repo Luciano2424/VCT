@@ -10,15 +10,15 @@ keyword = st.text_input("Ingrese la palabra clave:", "")
 
 # Mapeo de palabras clave
 keywords_mapping = {
-    "jugador": "player",
-    "equipo": "team",
-    "nacionalidad": "nationality",
-    "asesinatos": "kill",
-    "muertes": "death",
-    "K/D": "rendimiento",
+    "jugador": "Player",
+    "equipo": "Team",
+    "nacionalidad": "Nationality",
+    "asesinatos": "Kill",
+    "muertes": "Death",
+    "K/D": "Rendimiento",
     "KAST": "Impacto por ronda",
-    "Prize": "ganancias",
-    "Role": "rol",
+    "Prize": "Ganancias",
+    "Role": "Rol",
     "HS %": "porcentaje de headshots",
     "Rounds Played": "rondas jugadas",
     "Rounds Win": "rondas ganadas",
