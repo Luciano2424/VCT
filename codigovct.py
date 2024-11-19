@@ -1,44 +1,48 @@
+
+Para modificar tu aplicación de Streamlit de manera que, al buscar una palabra clave, muestre únicamente la columna correspondiente con los datos asociados, puedes ajustar el código de la siguiente manera:
+Código actualizado en Python:
+python
 import streamlit as st
 import pandas as pd
-
-# Cargar el archivo CSV
+Cargar el DataFrame desde el archivo CSV
 df = pd.read_csv("valorant champions istanbul.csv")
-
+Título de la aplicación
 st.title("Buscador de Datos de Jugadores")
-
+Entrada de texto para buscar palabras clave
 keyword = st.text_input("Ingrese la palabra clave:", "")
-
-# Mapeo de palabras clave
+Mapa de palabras clave a nombres de columnas
 keywords_mapping = {
-    "jugador": "Player",
-    "equipo": "Team",
-    "nacionalidad": "Nationality",
-    "asesinatos": "Kill",
-    "muertes": "Death",
-    "K/D": "Rendimiento",
-    "KAST": "Impacto por ronda",
-    "Prize": "Ganancias",
-    "Role": "Rol",
-    "HS %": "porcentaje de headshots",
-    "Rounds Played": "rondas jugadas",
-    "Rounds Win": "rondas ganadas",
-    "Rounds Lose": "rondas perdidas",
-    "Rank": "posición por equipos"
+"jugador": "player",
+"equipo": "team",
+"nacionalidad": "nationality",
+"asesinatos": "kill",
+"muertes": "death",
+"K/D": "rendimiento",
+"KAST": "Impacto por ronda",
+"Prize": "ganancias",
+"Role": "rol",
+"HS %": "porcentaje de headshots",
+"Rounds Played": "rondas jugadas",
+"Rounds Win": "rondas ganadas",
+"Rounds Lose": "rondas perdidas",
+"Rank": "posición por equipos"
 }
-
 if keyword in keywords_mapping:
-    column_name = keywords_mapping[keyword]
-    
-    # Verificar si la columna existe en el DataFrame
-    if column_name in df.columns:
-        # Filtrar los datos
-        filtered_data = df[df[column_name].astype(str).str.contains(keyword, case=False, na=False)]
-        if not filtered_data.empty:
-            st.write("Resultados encontrados:")
-            st.dataframe(filtered_data)
-        else:
-            st.write("No se encontraron resultados.")
-    else:
-        st.write(f"Error: La columna '{column_name}' no existe en los datos.")
+column_name = keywords_mapping[keyword]
+# Obtener los datos de la columna correspondiente
+if column_name in df.columns:
+st.write(f"Resultados para: {keyword}")
+st.dataframe(df[column_name])
 else:
-    st.write("La palabra clave no es válida.")
+st.write("No se encontró la columna correspondiente.")
+else:
+st.write("La palabra clave no es válida.")
+Cambios realizados:
+Al encontrar una coincidencia con la palabra clave, el código ahora extrae y muestra únicamente la columna correspondiente del DataFrame.Se añade un encabezado para los resultados que muestra la palabra clave para mayor claridad.
+Instrucciones:
+Asegúrate de que el archivo "valorant champions istanbul.csv" esté en el mismo directorio que el script.Mantén las bibliotecas streamlit y pandas instaladas.Guarda el código en tu archivo app.py.Ejecuta la aplicación de Streamlit desde la terminal:
+bash
+streamlit run app.py
+Opciones para seguir adelante:
+Modificar el código para presentar múltiples columnas relacionadasAgregar validaciones adicionales para mejorar la experiencia del usuarioExplorar cómo permitir la búsqueda en múltiples columnas
+Si necesitas más ajustes o tienes preguntas adicionales, no dudes en decírmelo. ¡Estoy aquí para ayudar!
