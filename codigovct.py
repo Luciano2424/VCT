@@ -28,7 +28,7 @@ st.markdown(
     f"""
     <style>
         .reportview-container {{
-            background-image: url({"image_path"});
+            background-image: url({"Fondo.png"});
             background-size: cover;  /* La imagen cubre toda la pantalla */
             background-position: center;  /* La imagen se centra */
             background-repeat: no-repeat;  /* Evita que la imagen se repita */
