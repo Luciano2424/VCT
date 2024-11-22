@@ -8,6 +8,14 @@ st.title("Buscador de Datos de Jugadores")
 
 keyword = st.text_input("Ingrese la palabra clave:", "")
 
+def mostrar_info_jose():
+    st.write("**José** 🇧🇷") # Nombre con bandera de Brasil
+    st.write("Edad: 21 años") 
+    st.write("Tiempo jugando: 7 años") 
+
+if st.button("Mostrar información de José"):
+    mostrar_info_jose()
+    
 # Mapeo de palabras clave
 keywords_mapping = {
     "jugador": "player",
