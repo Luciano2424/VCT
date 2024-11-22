@@ -17,7 +17,7 @@ def mejor_rendimiento():
 
 def peor_rendimiento():
     # Seleccionar las filas 1 y 7 (recuerda que el índice comienza en 0)
-    filas_seleccionadas = df.iloc[[20]]  
+    filas_seleccionadas = df.iloc[[19]]  
 
     # Mostrar las filas seleccionadas como un DataFrame en Streamlit
     st.dataframe(filas_seleccionadas)
@@ -31,7 +31,7 @@ def mas_kills():
 
 def mejor_rendimiento_por_equipo():
     # Seleccionar las filas 1 y 7 (recuerda que el índice comienza en 0)
-    filas_seleccionadas = df.iloc[[4,5,11,19,24,27,33,36]]  
+    filas_seleccionadas = df.iloc[[3,5,10,16,22,25,32,35]]  
 
     # Mostrar las filas seleccionadas como un DataFrame en Streamlit
     st.dataframe(filas_seleccionadas)
