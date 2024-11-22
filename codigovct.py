@@ -61,40 +61,40 @@ if st.session_state.page == "home":
         st.session_state.page = "mejor_rendimiento_por_equipo"
 
 # Página para mostrar el "mejor rendimiento"
-st.tittle("Jugador con mejor rendimiento del torneo")
 elif st.session_state.page == "mejor_rendimiento":
     mejor_rendimiento()
     # Redimensionar la imagen y mostrarla
+    st.tittle("Jugador con mejor rendimiento del torneo")
     img_yay = resize_image(image_yay, 240, 288)
     st.image(img_yay, caption="")
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
 # Página para mostrar el "peor rendimiento"
-st.tittle("Jugador con peor rendimiento del torneo")
 elif st.session_state.page == "peor_rendimiento":
     peor_rendimiento()
     # Redimensionar la imagen y mostrarla
+    st.tittle("Jugador con peor rendimiento del torneo")
     img_ange1 = resize_image(image_ANGE1, 240, 288)
     st.image(img_ange1, caption="Presentación ANGE1")
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
 # Página para mostrar el "jugador con más kills"
-st.tittle("Jugador conmás kills del torneo")
 elif st.session_state.page == "mas_kills":
     mas_kills()
     # Redimensionar la imagen y mostrarla
+    st.tittle("Jugador conmás kills del torneo")
     img_yay = resize_image(image_yay, 240, 288)
     st.image(img_yay, caption="Presentación yay")
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
 # Página para mostrar el "mejor rendimiento por equipo"
-st.tittle("Jugadores con mejor rendimiento del torneo por equipo")
 elif st.session_state.page == "mejor_rendimiento_por_equipo":
     mejor_rendimiento_por_equipo()
     # Redimensionar las imágenes y mostrarlas
+    st.tittle("Jugadores con mejor rendimiento del torneo por equipo")
     img_Less = resize_image(image_Less, 240, 288)
     img_yay = resize_image(image_yay, 240, 288)
     img_MaKo = resize_image(image_MaKo, 240, 288)
