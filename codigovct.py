@@ -25,7 +25,7 @@ st.markdown(
     """
     <style>
     .reportview-container {
-        background: url("https://sl.bing.net/cEWFCPXxDSS");
+        background: url("https://www.example.com/image.jpg");
     }
    </style>
     """,
