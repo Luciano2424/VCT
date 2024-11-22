@@ -4,83 +4,88 @@ import pandas as pd
 # Cargar el archivo CSV
 df = pd.read_csv("valorant champions istanbul.csv")
 
-st.title("Datos que creemos te gustaíran saber")
+# Asegúrate de que la imagen de fondo esté en el mismo directorio
+image_path = "fondo.jpg"
 
-keyword = st.text_input("Ingrese la palabra clave:", "")
-
+# Funciones para mostrar los datos
 def mejor_rendimiento():
-    # Seleccionar las filas 1 y 7 (recuerda que el índice comienza en 0)
     filas_seleccionadas = df.iloc[[5]]  
-
-    # Mostrar las filas seleccionadas como un DataFrame en Streamlit
     st.dataframe(filas_seleccionadas)
 
 def peor_rendimiento():
-    # Seleccionar las filas 1 y 7 (recuerda que el índice comienza en 0)
     filas_seleccionadas = df.iloc[[19]]  
-
-    # Mostrar las filas seleccionadas como un DataFrame en Streamlit
     st.dataframe(filas_seleccionadas)
 
 def mas_kills():
-    # Seleccionar las filas 1 y 7 (recuerda que el índice comienza en 0)
     filas_seleccionadas = df.iloc[[5]]  
-
-    # Mostrar las filas seleccionadas como un DataFrame en Streamlit
     st.dataframe(filas_seleccionadas)
 
 def mejor_rendimiento_por_equipo():
-    # Seleccionar las filas 1 y 7 (recuerda que el índice comienza en 0)
     filas_seleccionadas = df.iloc[[3,5,10,16,22,25,32,35]]  
-
-    # Mostrar las filas seleccionadas como un DataFrame en Streamlit
     st.dataframe(filas_seleccionadas)
 
-# Crea el botón con la imagen de fondo y su funcionalidad
-if st.button("Cuál fué jugador con mejor rendimiento global del torneo"):
-    mejor_rendimiento()  # Llama a la función 'mejor_rendimiento' cuando el botón es presionado
-
-if st.button("Cuál fué ugador con peor rendimiento global del torneo"):
-    peor_rendimiento()
-
-if st.button("Cuál fué el jugador con más kills?"):
-   mas_kills()
-    
-if st.button("Cuales fueron los jugadores con mejor rendimiento de cada equipo."):
-    mejor_rendimiento_por_equipo()
-
-
-st.markdown("""
-<style>
-.custom-button {
-   background-color: #4CAF50;
-   color: white;
-   padding: 74px 10px;
-   margin: 8px 0;
-   border: none;
-   cursor: pointer;
-   width: 100%;
-}
-.custom-button:hover {
-   opacity: 0.8;
-}
-</style>
-<button class="custom-button">Botón Personalizado</button>
-""", unsafe_allow_html=True)
-
-# Usamos un bloque de markdown para aplicar estilos con CSS
+# Establece el fondo de la página con la imagen "fondo.jpg"
 st.markdown(
     f"""
     <style>
+        .reportview-container {{
+            background-image: url({image_path});
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            color: white;
+        }}
         .stButton>button {{
-            color: white; /* Establece el color del texto */
-            font-size: 20px; /* Tamaño de la fuente */
-            height: 60px; /* Altura del botón */
-            width: 400px; /* Ancho del botón */
-            border: none; /* Sin borde */
-            border-radius: 8px; /* Bordes redondeados */
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 20px;
+            border-radius: 8px;
         }}
     </style>
     """,
     unsafe_allow_html=True
 )
+
+# Título de la página
+st.title("Datos que creemos te gustarán saber")
+
+# Función para manejar la navegación entre páginas
+if "page" not in st.session_state:
+    st.session_state.page = "home"
+
+# Página principal (home)
+if st.session_state.page == "home":
+    if st.button("Cuál fue el jugador con mejor rendimiento global del torneo"):
+        st.session_state.page = "mejor_rendimiento"
+    if st.button("Cuál fue el jugador con peor rendimiento global del torneo"):
+        st.session_state.page = "peor_rendimiento"
+    if st.button("Cuál fue el jugador con más kills?"):
+        st.session_state.page = "mas_kills"
+    if st.button("Cuáles fueron los jugadores con mejor rendimiento de cada equipo?"):
+        st.session_state.page = "mejor_rendimiento_por_equipo"
+
+# Página para mostrar el "mejor rendimiento"
+elif st.session_state.page == "mejor_rendimiento":
+    mejor_rendimiento()
+    if st.button("Volver a la página principal"):
+        st.session_state.page = "home"
+
+# Página para mostrar el "peor rendimiento"
+elif st.session_state.page == "peor_rendimiento":
+    peor_rendimiento()
+    if st.button("Volver a la página principal"):
+        st.session_state.page = "home"
+
+# Página para mostrar el "jugador con más kills"
+elif st.session_state.page == "mas_kills":
+    mas_kills()
+    if st.button("Volver a la página principal"):
+        st.session_state.page = "home"
+
+# Página para mostrar el "mejor rendimiento por equipo"
+elif st.session_state.page == "mejor_rendimiento_por_equipo":
+    mejor_rendimiento_por_equipo()
+    if st.button("Volver a la página principal"):
+        st.session_state.page = "home"
+
