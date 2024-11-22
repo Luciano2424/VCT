@@ -4,9 +4,6 @@ import pandas as pd
 # Cargar el archivo CSV
 df = pd.read_csv("valorant champions istanbul.csv")
 
-# Asegúrate de que la imagen de fondo esté en el mismo directorio
-image_path = "Fondo.png"
-
 # Funciones para mostrar los datos
 def mejor_rendimiento():
     filas_seleccionadas = df.iloc[[5]]  
@@ -24,23 +21,19 @@ def mejor_rendimiento_por_equipo():
     filas_seleccionadas = df.iloc[[3,5,10,16,22,25,32,35]]  
     st.dataframe(filas_seleccionadas)
 
-# Establece el fondo de la página con la imagen "fondo.jpg"
+image_path = "Fondo.png"  
+
+# Establece el fondo de la página con la imagen "Fondo.png"
 st.markdown(
     f"""
     <style>
         .reportview-container {{
-            background-image: url({image_path});
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100vh;
-            color: white;
-        }}
-        .stButton>button {{
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            font-size: 20px;
-            border-radius: 8px;
+            background-image: url({"image_path"});
+            background-size: cover;  /* La imagen cubre toda la pantalla */
+            background-position: center;  /* La imagen se centra */
+            background-repeat: no-repeat;  /* Evita que la imagen se repita */
+            height: 100vh;  /* La altura es 100% de la ventana del navegador */
+            color: white;  /* El color del texto será blanco para que sea visible sobre el fondo */
         }}
     </style>
     """,
