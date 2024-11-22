@@ -21,10 +21,17 @@ def mejor_rendimiento_por_equipo():
     filas_seleccionadas = df.iloc[[3,5,10,16,22,25,32,35]]  
     st.dataframe(filas_seleccionadas)
 
-image_path = "Fondo.png"  
+st.markdown(
+    """
+    <style>
+    .reportview-container {
+        background: url("https://sl.bing.net/cEWFCPXxDSS");
+    }
+   </style>
+    """,
+    unsafe_allow_html=True
+)
 
-# Mostrar la imagen como fondo con tamaño completo
-st.image(image_path, use_column_width=True, caption="", clamp=True)
 # Título de la página
 st.title("Datos que creemos te gustarán saber")
 
