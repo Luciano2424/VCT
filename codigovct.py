@@ -9,12 +9,8 @@ st.title("Buscador de Datos de Jugadores")
 keyword = st.text_input("Ingrese la palabra clave:", "")
 
 def mostrar_lineas_excel():
-    # Obtener el índice de la fila inicial (comienza desde 0 para la primera fila)
-    indice_fila_inicial = 0  # Puedes cambiar esto para seleccionar una fila inicial diferente
-    
-    # Obtener los datos de dos filas
-    # Usando iloc para seleccionar filas por índice
-    filas_seleccionadas = df.iloc[1 : 7 + 2] 
+    # Seleccionar las filas 1 y 7 (recuerda que el índice comienza en 0)
+    filas_seleccionadas = df.iloc[[0, 6]]  
 
     # Mostrar las filas seleccionadas como un DataFrame en Streamlit
     st.dataframe(filas_seleccionadas)
