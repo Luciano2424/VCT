@@ -79,39 +79,39 @@ if st.session_state.page == "home":
 # Página para mostrar el "mejor rendimiento"
 elif st.session_state.page == "mejor_rendimiento":
     mejor_rendimiento()
-    # Mostrar las dos imágenes "Fondo.png" y "duelistas.jpg"
-    st.image(image_yay, use_column_width=True, caption="", width=200)
+    # Mostrar las imágenes con el tamaño especificado (240x288)
+    st.image(image_yay, width=240, height=288, caption="")
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
 # Página para mostrar el "peor rendimiento"
 elif st.session_state.page == "peor_rendimiento":
     peor_rendimiento()
-    # Mostrar las dos imágenes "Fondo.png" y "duelistas.jpg"
-    st.image(image_ANGE1, use_column_width=True, caption="Presentación ANGE1")
+    # Mostrar la imagen "ANGE1.jpg" con el tamaño especificado
+    st.image(image_ANGE1, width=240, height=288, caption="Presentación ANGE1")
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
 # Página para mostrar el "jugador con más kills"
 elif st.session_state.page == "mas_kills":
     mas_kills()
-    # Mostrar las dos imágenes "Fondo.png" y "duelistas.jpg"
-    st.image(image_yay, use_column_width=True, caption="Presentación yay")
+    # Mostrar la imagen "yay.jpeg" con el tamaño especificado
+    st.image(image_yay, width=240, height=288, caption="Presentación yay")
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
 # Página para mostrar el "mejor rendimiento por equipo"
 elif st.session_state.page == "mejor_rendimiento_por_equipo":
     mejor_rendimiento_por_equipo()
-    # Mostrar las dos imágenes "Fondo.png" y "duelistas.jpg"
-    st.image(image_Less, use_column_width=True, caption="Presentación ")
-    st.image(image_yay, use_column_width=True, caption="Presentación ")
-    st.image(image_MaKo, use_column_width=True, caption="Presentación ")
-    st.image(image_suygetsu, use_column_width=True, caption="Presentación ")
-    st.image(image_Cryocells, use_column_width=True, caption="Presentación ")
-    st.image(image_Derke, use_column_width=True, caption="Presentación ")
-    st.image(image_Scream, use_column_width=True, caption="Presentación ")
-    st.image(image_kiNgg, use_column_width=True, caption="Presentación ")
+    # Mostrar las imágenes de los jugadores con el tamaño especificado (240x288)
+    st.image(image_Less, width=240, height=288, caption="Presentación Less")
+    st.image(image_yay, width=240, height=288, caption="Presentación yay")
+    st.image(image_MaKo, width=240, height=288, caption="Presentación MaKo")
+    st.image(image_suygetsu, width=240, height=288, caption="Presentación suygetsu")
+    st.image(image_Cryocells, width=240, height=288, caption="Presentación Cryocells")
+    st.image(image_Derke, width=240, height=288, caption="Presentación Derke")
+    st.image(image_Scream, width=240, height=288, caption="Presentación Scream")
+    st.image(image_kiNgg, width=240, height=288, caption="Presentación kiNgg")
 
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
