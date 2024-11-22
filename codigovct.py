@@ -79,7 +79,7 @@ if st.session_state.page == "home":
 elif st.session_state.page == "mejor_rendimiento":
     mejor_rendimiento()
     # Mostrar las dos imágenes "Fondo.png" y "duelistas.jpg"
-    st.image(image_yay, use_column_width=True, caption="Presentación yay", heigth: 500)
+    st.image(image_yay, use_column_width=True, caption="Presentación yay", width=300)
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
