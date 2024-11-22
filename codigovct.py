@@ -8,13 +8,19 @@ st.title("Buscador de Datos de Jugadores")
 
 keyword = st.text_input("Ingrese la palabra clave:", "")
 
-def mostrar_info_jose():
-    st.write("**José** 🇧🇷") # Nombre con bandera de Brasil
-    st.write("Edad: 21 años") 
-    st.write("Tiempo jugando: 7 años") 
+def mostrar_lineas_excel():
+    # Obtener el índice de la fila inicial (comienza desde 0 para la primera fila)
+    indice_fila_inicial = 0  # Puedes cambiar esto para seleccionar una fila inicial diferente
+    
+    # Obtener los datos de dos filas
+    # Usando iloc para seleccionar filas por índice
+    filas_seleccionadas = df.iloc[1 : 7 + 2] 
 
-if st.button("Mostrar información de José"):
-    mostrar_info_jose()
+    # Mostrar las filas seleccionadas como un DataFrame en Streamlit
+    st.dataframe(filas_seleccionadas)
+
+if st.button("Jugador con mejor rendimiento global del torneo"):
+    mostrar_lineas_excel()
     
 # Mapeo de palabras clave
 keywords_mapping = {
