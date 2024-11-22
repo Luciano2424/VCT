@@ -5,7 +5,7 @@ import pandas as pd
 df = pd.read_csv("valorant champions istanbul.csv")
 
 # Asegúrate de que la imagen de fondo esté en el mismo directorio
-image_path = "fondo.jpg"
+image_path = "Fondo.jpg"
 
 # Funciones para mostrar los datos
 def mejor_rendimiento():
