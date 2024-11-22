@@ -15,7 +15,7 @@ image_MaKo = "MaKo.jpg"
 image_Scream = "Scream.jpg"
 image_kiNgg = "kiNgg.jpg"
 image_suygetsu = "suygetsu.jpg"
-image_Less = "Less.jpg"
+image_Less = "Less.jpeg"
 
 
 # Funciones para mostrar los datos
