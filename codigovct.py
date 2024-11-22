@@ -8,42 +8,43 @@ st.title("Datos que creemos te gustaíran saber")
 
 keyword = st.text_input("Ingrese la palabra clave:", "")
 
-def mostrar_lineas_excel():
+def mejor_rendimiento():
     # Seleccionar las filas 1 y 7 (recuerda que el índice comienza en 0)
     filas_seleccionadas = df.iloc[[5]]  
 
     # Mostrar las filas seleccionadas como un DataFrame en Streamlit
     st.dataframe(filas_seleccionadas)
 
-if st.button("Jugador con mejor rendimiento global del torneo"):
-    mostrar_lineas_excel()
+def peor_rendimiento():
+    # Seleccionar las filas 1 y 7 (recuerda que el índice comienza en 0)
+    filas_seleccionadas = df.iloc[[20]]  
+
+    # Mostrar las filas seleccionadas como un DataFrame en Streamlit
+    st.dataframe(filas_seleccionadas)
+
+def mas_kills():
+    # Seleccionar las filas 1 y 7 (recuerda que el índice comienza en 0)
+    filas_seleccionadas = df.iloc[[5]]  
+
+    # Mostrar las filas seleccionadas como un DataFrame en Streamlit
+    st.dataframe(filas_seleccionadas)
+
+def mejor_rendimiento_por_equipo():
+    # Seleccionar las filas 1 y 7 (recuerda que el índice comienza en 0)
+    filas_seleccionadas = df.iloc[[4,5,11,19,24,27,33,36]]  
+
+    # Mostrar las filas seleccionadas como un DataFrame en Streamlit
+    st.dataframe(filas_seleccionadas)
+
+if st.button("Cuál fué jugador con mejor rendimiento global del torneo"):
+    mejor_rendimiento()
+
+if st.button("Cuál fué ugador con peor rendimiento global del torneo"):
+    peor_rendimiento()
+
+if st.button("Cuál fué el jugador con más kills?"):
+   mas_kills()
     
-# Mapeo de palabras clave
-keywords_mapping = {
-    "jugador": "player",
-    "equipo": "team",
-    "nacionalidad": "nationality",
-    "asesinatos": "kill",
-    "muertes": "death",
-    "K/D": "rendimiento",
-    "KAST": "Impacto por ronda",
-    "Prize": "ganancias",
-    "Role": "rol",
-    "HS %": "porcentaje de headshots",
-    "Rounds Played": "rondas jugadas",
-    "Rounds Win": "rondas ganadas",
-    "Rounds Lose": "rondas perdidas",
-    "Rank": "posición por equipos"
-}
-
-if keyword in keywords_mapping:
-    column_name = keywords_mapping[keyword]  # Línea correctamente indentada
-
-    if column_name in df.columns:  # También indentado
-        st.write(f"Resultados para: {keyword}")
-        st.dataframe(df[column_name])
-    else:
-        st.write("No se encontró la columna correspondiente.")
-else:
-    st.write("La palabra clave no es válida.")
+if st.button("Cuales fueron los jugadores con mejor rendimiento de cada equipo."):
+    mejor_rendimiento_por_equipo()
 
