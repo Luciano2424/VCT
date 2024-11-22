@@ -7,6 +7,13 @@ df = pd.read_csv("valorant champions istanbul.csv")
 # Asegúrate de que las imágenes estén en el mismo directorio
 image_path_fondo = "Fondo.png"
 image_path_duelistas = "duelistas.jpg"
+image_yay = "yay.jpeg"
+image_Cryocells =
+image_ANGE1 = 
+image_Derke = 
+image_MaKo = 
+image_Scream = 
+image_kiNgg = 
 
 # Funciones para mostrar los datos
 def mejor_rendimiento():
@@ -70,8 +77,7 @@ if st.session_state.page == "home":
 elif st.session_state.page == "mejor_rendimiento":
     mejor_rendimiento()
     # Mostrar las dos imágenes "Fondo.png" y "duelistas.jpg"
-    st.image(image_path_fondo, use_column_width=True, caption="Fondo de la página")
-    st.image(image_path_duelistas, use_column_width=True, caption="Duelistas")
+    st.image(image_yay, use_column_width=True, caption="Presentación yay")
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
