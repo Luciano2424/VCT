@@ -10,7 +10,7 @@ keyword = st.text_input("Ingrese la palabra clave:", "")
 
 def mostrar_lineas_excel():
     # Seleccionar las filas 1 y 7 (recuerda que el índice comienza en 0)
-    filas_seleccionadas = df.iloc[[7]]  
+    filas_seleccionadas = df.iloc[[5]]  
 
     # Mostrar las filas seleccionadas como un DataFrame en Streamlit
     st.dataframe(filas_seleccionadas)
