@@ -48,3 +48,21 @@ if st.button("Cuál fué el jugador con más kills?"):
 if st.button("Cuales fueron los jugadores con mejor rendimiento de cada equipo."):
     mejor_rendimiento_por_equipo()
 
+
+st.markdown("""
+<style>
+.custom-button {
+   background-color: #4CAF50;
+   color: white;
+   padding: 14px 20px;
+   margin: 8px 0;
+   border: none;
+   cursor: pointer;
+   width: 100%;
+}
+.custom-button:hover {
+   opacity: 0.8;
+}
+</style>
+<button class="custom-button">Botón Personalizado</button>
+""", unsafe_allow_html=True)
