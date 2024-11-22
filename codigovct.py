@@ -36,8 +36,31 @@ def mejor_rendimiento_por_equipo():
     # Mostrar las filas seleccionadas como un DataFrame en Streamlit
     st.dataframe(filas_seleccionadas)
 
+image_path = "duelistas.jpg"
+
+# Usamos un bloque de markdown para aplicar estilos con CSS
+st.markdown(
+    f"""
+    <style>
+        .stButton>button {{
+            background-image: url({image_path}); /* Establece la imagen como fondo */
+            background-size: cover; /* Hace que la imagen cubra todo el botón */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            color: white; /* Establece el color del texto */
+            font-size: 20px; /* Tamaño de la fuente */
+            height: 60px; /* Altura del botón */
+            width: 400px; /* Ancho del botón */
+            border: none; /* Sin borde */
+            border-radius: 8px; /* Bordes redondeados */
+        }}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Crea el botón con la imagen de fondo y su funcionalidad
 if st.button("Cuál fué jugador con mejor rendimiento global del torneo"):
-    mejor_rendimiento()
+    mejor_rendimiento()  # Llama a la función 'mejor_rendimiento' cuando el botón es presionado
 
 if st.button("Cuál fué ugador con peor rendimiento global del torneo"):
     peor_rendimiento()
