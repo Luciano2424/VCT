@@ -23,23 +23,8 @@ def mejor_rendimiento_por_equipo():
 
 image_path = "Fondo.png"  
 
-# Establece el fondo de la página con la imagen "Fondo.png"
-st.markdown(
-    f"""
-    <style>
-        .reportview-container {{
-            background-image: url({"Fondo.png"});
-            background-size: cover;  /* La imagen cubre toda la pantalla */
-            background-position: center;  /* La imagen se centra */
-            background-repeat: no-repeat;  /* Evita que la imagen se repita */
-            height: 100vh;  /* La altura es 100% de la ventana del navegador */
-            color: white;  /* El color del texto será blanco para que sea visible sobre el fondo */
-        }}
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
+# Mostrar la imagen como fondo con tamaño completo
+st.image(image_path, use_column_width=True, caption="", clamp=True)
 # Título de la página
 st.title("Datos que creemos te gustarán saber")
 
