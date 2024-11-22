@@ -31,7 +31,7 @@ def mas_kills():
     st.dataframe(filas_seleccionadas)
 
 def mejor_rendimiento_por_equipo():
-    filas_seleccionadas = df.iloc[[3,5,10,16,22,25,32,35]]  
+    filas_seleccionadas = df.iloc[[3,5,10,17,22,25,32,35]]  
     st.dataframe(filas_seleccionadas)
 
 # Establece el fondo de la página con la imagen "Fondo.png"
@@ -79,7 +79,7 @@ if st.session_state.page == "home":
 elif st.session_state.page == "mejor_rendimiento":
     mejor_rendimiento()
     # Mostrar las dos imágenes "Fondo.png" y "duelistas.jpg"
-    st.image(image_yay, use_column_width=True, caption="Presentación yay", width=200)
+    st.image(image_yay, use_column_width=True, caption="", width=200)
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
@@ -87,8 +87,7 @@ elif st.session_state.page == "mejor_rendimiento":
 elif st.session_state.page == "peor_rendimiento":
     peor_rendimiento()
     # Mostrar las dos imágenes "Fondo.png" y "duelistas.jpg"
-    st.image(image_path_fondo, use_column_width=True, caption="Fondo de la página")
-    st.image(image_path_duelistas, use_column_width=True, caption="Duelistas")
+    st.image(image_ANGE1, use_column_width=True, caption="Presentación ANGE1")
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
@@ -96,8 +95,7 @@ elif st.session_state.page == "peor_rendimiento":
 elif st.session_state.page == "mas_kills":
     mas_kills()
     # Mostrar las dos imágenes "Fondo.png" y "duelistas.jpg"
-    st.image(image_path_fondo, use_column_width=True, caption="Fondo de la página")
-    st.image(image_path_duelistas, use_column_width=True, caption="Duelistas")
+    st.image(image_yay, use_column_width=True, caption="Presentación yay")
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
@@ -105,7 +103,14 @@ elif st.session_state.page == "mas_kills":
 elif st.session_state.page == "mejor_rendimiento_por_equipo":
     mejor_rendimiento_por_equipo()
     # Mostrar las dos imágenes "Fondo.png" y "duelistas.jpg"
-    st.image(image_path_fondo, use_column_width=True, caption="Fondo de la página")
-    st.image(image_path_duelistas, use_column_width=True, caption="Duelistas")
+    st.image(image_Less, use_column_width=True, caption="Presentación ")
+    st.image(image_yay, use_column_width=True, caption="Presentación ")
+    st.image(image_MaKo, use_column_width=True, caption="Presentación ")
+    st.image(image_suygetsu, use_column_width=True, caption="Presentación ")
+    st.image(image_Cryocells, use_column_width=True, caption="Presentación ")
+    st.image(image_Derke, use_column_width=True, caption="Presentación ")
+    st.image(image_Scream, use_column_width=True, caption="Presentación ")
+    st.image(image_kiNgg, use_column_width=True, caption="Presentación ")
+
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
