@@ -43,7 +43,7 @@ st.markdown(
     f"""
     <style>
         .stButton>button {{
-            background-image: url({image_path}); /* Establece la imagen como fondo */
+            background-image: url({"duelistas.jpg"}); /* Establece la imagen como fondo */
             background-size: cover; /* Hace que la imagen cubra todo el botón */
             background-repeat: no-repeat; /* Evita que la imagen se repita */
             color: white; /* Establece el color del texto */
