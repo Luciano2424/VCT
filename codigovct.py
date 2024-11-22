@@ -8,12 +8,14 @@ df = pd.read_csv("valorant champions istanbul.csv")
 image_path_fondo = "Fondo.png"
 image_path_duelistas = "duelistas.jpg"
 image_yay = "yay.jpeg"
-image_Cryocells =
-image_ANGE1 = 
-image_Derke = 
-image_MaKo = 
-image_Scream = 
-image_kiNgg = 
+image_Cryocells = "Cryocells.jpg"
+image_ANGE1 = "ANGE1.jpg"
+image_Derke = "Derke.jpg"
+image_MaKo = "MaKo.jpg"
+image_Scream = "Scream.jpg"
+image_kiNgg = "kiNgg.jpg"
+image_suygetsu = "suygetsu.jpg"
+
 
 # Funciones para mostrar los datos
 def mejor_rendimiento():
