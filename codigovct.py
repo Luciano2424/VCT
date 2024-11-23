@@ -34,30 +34,7 @@ def mas_kills():
 def mejor_rendimiento_por_equipo():
     filas_seleccionadas = df.iloc[[3,5,10,17,22,25,32,35]]  
     st.dataframe(filas_seleccionadas)
-
-# Establece el fondo de la página con la imagen "Fondo.png"
-st.markdown(
-    f"""
-    <style>
-        .reportview-container {{
-            background-image: url({image_path_fondo});
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100vh;
-            color: white;
-        }}
-        .stButton>button {{
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            font-size: 20px;
-            border-radius: 8px;
-        }}
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
+    
 # Título de la página
 st.title("Datos que creemos te gustarán saber")
 
