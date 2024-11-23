@@ -1,11 +1,9 @@
 import streamlit as st
 import pandas as pd
-from PIL import Image  # Añadir esta importación para trabajar con imágenes
+from PIL import Image  
 
-# Cargar el archivo CSV
 df = pd.read_csv("valorant champions istanbul.csv")
 
-# Asegúrate de que las imágenes estén en el mismo directorio
 image_path_fondo = "Fondo.png"
 image_path_duelistas = "duelistas.jpg"
 image_yay = "yay.jpeg"
@@ -19,7 +17,6 @@ image_suygetsu = "suygetsu.jpg"
 image_Less = "Less.jpeg"
 
 
-# Funciones para mostrar los datos
 def mejor_rendimiento():
     filas_seleccionadas = df.iloc[[5]]  
     st.dataframe(filas_seleccionadas)
@@ -36,20 +33,17 @@ def mejor_rendimiento_por_equipo():
     filas_seleccionadas = df.iloc[[3,5,10,17,22,25,32,35]]  
     st.dataframe(filas_seleccionadas)
 
-# Título de la página
-st.title("Datos que creemos te gustarán saber")
+if st.session_state.page == "home":  
+    st.title("Datos que creemos te gustarán saber")
 
-# Función para manejar la navegación entre páginas
 if "page" not in st.session_state:
     st.session_state.page = "home"
 
-# Función para redimensionar imágenes
 def resize_image(image_path, width=130, height=152):
-    img = Image.open(image_path)  # Abrir la imagen
-    img_resized = img.resize((width, height))  # Redimensionar la imagen
+    img = Image.open(image_path)  
+    img_resized = img.resize((width, height))  
     return img_resized
 
-# Página principal (home)
 if st.session_state.page == "home":
     if st.button("Cuál fue el jugador con mejor rendimiento global del torneo"):
         st.session_state.page = "mejor_rendimiento"
@@ -60,41 +54,33 @@ if st.session_state.page == "home":
     if st.button("Cuáles fueron los jugadores con mejor rendimiento de cada equipo?"):
         st.session_state.page = "mejor_rendimiento_por_equipo"
 
-# Página para mostrar el "mejor rendimiento"
 elif st.session_state.page == "mejor_rendimiento":
     st.title("Jugador con mejor rendimiento")
     mejor_rendimiento()
-    # Redimensionar y mostrar las imágenes
     img_resized_yay = resize_image(image_yay)
     st.image(img_resized_yay, caption="Presentación yay")
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
-# Página para mostrar el "peor rendimiento"
 elif st.session_state.page == "peor_rendimiento":
     st.title("Jugador con rendimiento mas bajo")
     peor_rendimiento()
-    # Redimensionar y mostrar las imágenes
     img_resized_ange1 = resize_image(image_ANGE1)
     st.image(img_resized_ange1, caption="Presentación ANGE1")
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
-# Página para mostrar el "jugador con más kills"
 elif st.session_state.page == "mas_kills":
     st.title("Jugador con más bajas")
     mas_kills()
-    # Redimensionar y mostrar las imágenes
     img_resized_yay = resize_image(image_yay)
     st.image(img_resized_yay, caption="Presentación yay")
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
-# Página para mostrar el "mejor rendimiento por equipo"
 elif st.session_state.page == "mejor_rendimiento_por_equipo":
     st.title("Jugadores con el mejor rendimiento por equipo")
     mejor_rendimiento_por_equipo()
-    # Redimensionar y mostrar las imágenes
     img_resized_Less = resize_image(image_Less)
     st.image(img_resized_Less, caption="Presentación Less")
     
@@ -121,3 +107,4 @@ elif st.session_state.page == "mejor_rendimiento_por_equipo":
     
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
+        
