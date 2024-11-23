@@ -34,7 +34,7 @@ def resize_image(image_path, width=130, height=152):
     img_resized = img.resize((width, height))  
     return img_resized
 
-# Función para agregar leyenda con tipografía personalizada
+# Función para mostrar imagen y leyenda centrados
 def display_image_with_caption(image_path, caption):
     img_resized = resize_image(image_path)
     col = st.columns(1)  # Usamos 1 columna para centrar la imagen
@@ -74,7 +74,7 @@ elif st.session_state.page == "mejor_rendimiento":
         st.session_state.page = "home"
 
 elif st.session_state.page == "peor_rendimiento":
-    st.title("Jugador con rendimiento mas bajo")
+    st.title("Jugador con rendimiento más bajo")
     peor_rendimiento()
     display_image_with_caption(image_ANGE1, "Presentación ANGE1")
     if st.button("Volver a la página principal"):
