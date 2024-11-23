@@ -53,9 +53,8 @@ def display_image_with_caption(image_path, caption):
         <style>
         .caption {{
             font-family: 'Arial Black', sans-serif;
-            font-size: 18px;
+            font-size: 15px;
             font-weight: bold;
-            text-align: center;
         }}
         </style>
         <p class="caption">{caption}</p>
