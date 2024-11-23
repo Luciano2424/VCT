@@ -102,7 +102,7 @@ elif st.session_state.page == "mejor_rendimiento_por_equipo":
     col5, col6, col7, col8 = st.columns(4)
     with col5:
         img_resized_Cryocells = resize_image(image_Cryocells)
-        st.image(img_resized_Cryocells, caption("Cryocells Top 5")
+        st.image(img_resized_Cryocells, caption="Cryocells Top 5")
 
     with col6:
         img_resized_Derke = resize_image(image_Derke)
