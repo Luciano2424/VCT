@@ -126,10 +126,3 @@ elif st.session_state.page == "mejor_rendimiento_por_equipo":
 
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
-
-
-    with col4:
-        display_image_with_caption(image_suygetsu, "suygetsu Top 4")
-
-    if st.button("Volver a la página principal"):
-        st.session_state.page = "home"
