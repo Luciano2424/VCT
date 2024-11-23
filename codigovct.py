@@ -33,9 +33,7 @@ def mejor_rendimiento_por_equipo():
     filas_seleccionadas = df.iloc[[3,5,10,17,22,25,32,35]]  
     st.dataframe(filas_seleccionadas)
 
-if st.session_state.page == "home":  
-    st.title("Datos que creemos te gustarán saber")
-
+# Ensure "page" exists in session state
 if "page" not in st.session_state:
     st.session_state.page = "home"
 
@@ -61,7 +59,9 @@ def display_image_with_caption(image_path, caption):
         """, unsafe_allow_html=True
     )
 
-if st.session_state.page == "home":
+if st.session_state.page == "home":  
+    st.title("Datos que creemos te gustarán saber")
+
     if st.button("Cuál fue el jugador con mejor rendimiento global del torneo"):
         st.session_state.page = "mejor_rendimiento"
     if st.button("Cuál fue el jugador con peor rendimiento global del torneo"):
