@@ -71,22 +71,6 @@ elif st.session_state.page == "peor_rendimiento":
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
         
-
-
-
-# Cargar la imagen
-image_ANGE1 = "ANGE1.jpg"
-img = Image.open(image_ANGE1)
-
-# Redimensionar la imagen a 113x152 píxeles (aproximadamente 3cm x 4cm)
-img_resized = img.resize((125, 152))
-
-# Mostrar la imagen redimensionada
-st.image(img_resized)
-
-
-
-
 # Página para mostrar el "jugador con más kills"
 elif st.session_state.page == "mas_kills":
     mas_kills()
@@ -110,3 +94,17 @@ elif st.session_state.page == "mejor_rendimiento_por_equipo":
 
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
+
+
+
+
+# Cargar la imagen
+image_ANGE1 = "ANGE1.jpg"
+img = Image.open(image_ANGE1)
+
+# Redimensionar la imagen a 113x152 píxeles (aproximadamente 3cm x 4cm)
+img_resized = img.resize((125, 152))
+
+# Mostrar la imagen redimensionada
+st.image(img_resized)
+
