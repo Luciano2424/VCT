@@ -62,7 +62,7 @@ if st.session_state.page == "home":
 
 # Página para mostrar el "mejor rendimiento"
 elif st.session_state.page == "mejor_rendimiento":
-    st.tittle("Jugador con mejor rendimiento")
+    st.title("Jugador con mejor rendimiento")
     mejor_rendimiento()
     # Redimensionar y mostrar las imágenes
     img_resized_yay = resize_image(image_yay)
@@ -72,7 +72,7 @@ elif st.session_state.page == "mejor_rendimiento":
 
 # Página para mostrar el "peor rendimiento"
 elif st.session_state.page == "peor_rendimiento":
-    st.tittle("Jugador con rendimiento mas bajo")
+    st.title("Jugador con rendimiento mas bajo")
     peor_rendimiento()
     # Redimensionar y mostrar las imágenes
     img_resized_ange1 = resize_image(image_ANGE1)
@@ -82,7 +82,7 @@ elif st.session_state.page == "peor_rendimiento":
 
 # Página para mostrar el "jugador con más kills"
 elif st.session_state.page == "mas_kills":
-    st.tittle("Jugador con más bajas")
+    st.title("Jugador con más bajas")
     mas_kills()
     # Redimensionar y mostrar las imágenes
     img_resized_yay = resize_image(image_yay)
@@ -92,7 +92,7 @@ elif st.session_state.page == "mas_kills":
 
 # Página para mostrar el "mejor rendimiento por equipo"
 elif st.session_state.page == "mejor_rendimiento_por_equipo":
-    st.tittle("Jugadores con el mejor rendimiento por equipo")
+    st.title("Jugadores con el mejor rendimiento por equipo")
     mejor_rendimiento_por_equipo()
     # Redimensionar y mostrar las imágenes
     img_resized_Less = resize_image(image_Less)
