@@ -85,36 +85,36 @@ elif st.session_state.page == "mejor_rendimiento_por_equipo":
     col1, col2, col3, col4 = st.columns(4)  
     with col1:
         img_resized_Less = resize_image(image_Less)
-        st.image(img_resized_Less, caption="Presentación Less")
+        st.image(img_resized_Less, caption="Less Top 1")
 
     with col2:
         img_resized_yay = resize_image(image_yay)
-        st.image(img_resized_yay, caption="Presentación yay")
+        st.image(img_resized_yay, caption="yay Top 2")
 
     with col3:
         img_resized_MaKo = resize_image(image_MaKo)
-        st.image(img_resized_MaKo, caption="Presentación MaKo")
+        st.image(img_resized_MaKo, caption="MaKo Top 3")
 
     with col4:
         img_resized_suygetsu = resize_image(image_suygetsu)
-        st.image(img_resized_suygetsu, caption="Presentación suygetsu")
+        st.image(img_resized_suygetsu, caption="suygetsu Top 4")
 
     col5, col6, col7, col8 = st.columns(4)
     with col5:
         img_resized_Cryocells = resize_image(image_Cryocells)
-        st.image(img_resized_Cryocells, caption="Presentación Cryocells")
+        st.image(img_resized_Cryocells, caption("Cryocells Top 5")
 
     with col6:
         img_resized_Derke = resize_image(image_Derke)
-        st.image(img_resized_Derke, caption="Presentación Derke")
+        st.image(img_resized_Derke, caption="Derke Top 6")
 
     with col7:
         img_resized_Scream = resize_image(image_Scream)
-        st.image(img_resized_Scream, caption="Presentación Scream")
+        st.image(img_resized_Scream, caption="Scream Top 7")
 
     with col8:
         img_resized_kiNgg = resize_image(image_kiNgg)
-        st.image(img_resized_kiNgg, caption="Presentación kiNgg")
+        st.image(img_resized_kiNgg, caption="kiNgg Top 8")
 
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
