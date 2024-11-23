@@ -84,27 +84,39 @@ elif st.session_state.page == "mejor_rendimiento_por_equipo":
     img_resized_Less = resize_image(image_Less)
     st.image(img_resized_Less, caption="Presentación Less")
     
-    img_resized_yay = resize_image(image_yay)
-    st.image(img_resized_yay, caption="Presentación yay")
-    
-    img_resized_MaKo = resize_image(image_MaKo)
-    st.image(img_resized_MaKo, caption="Presentación MaKo")
-    
-    img_resized_suygetsu = resize_image(image_suygetsu)
-    st.image(img_resized_suygetsu, caption="Presentación suygetsu")
-    
-    img_resized_Cryocells = resize_image(image_Cryocells)
-    st.image(img_resized_Cryocells, caption="Presentación Cryocells")
-    
-    img_resized_Derke = resize_image(image_Derke)
-    st.image(img_resized_Derke, caption="Presentación Derke")
-    
-    img_resized_Scream = resize_image(image_Scream)
-    st.image(img_resized_Scream, caption="Presentación Scream")
-    
-    img_resized_kiNgg = resize_image(image_kiNgg)
-    st.image(img_resized_kiNgg, caption="Presentación kiNgg")
-    
+    col1, col2, col3, col4 = st.columns(4)  
+    with col1:
+        img_resized_Less = resize_image(image_Less)
+        st.image(img_resized_Less, caption="Presentación Less")
+
+    with col2:
+        img_resized_yay = resize_image(image_yay)
+        st.image(img_resized_yay, caption="Presentación yay")
+
+    with col3:
+        img_resized_MaKo = resize_image(image_MaKo)
+        st.image(img_resized_MaKo, caption="Presentación MaKo")
+
+    with col4:
+        img_resized_suygetsu = resize_image(image_suygetsu)
+        st.image(img_resized_suygetsu, caption="Presentación suygetsu")
+
+    col5, col6, col7, col8 = st.columns(4)
+    with col5:
+        img_resized_Cryocells = resize_image(image_Cryocells)
+        st.image(img_resized_Cryocells, caption="Presentación Cryocells")
+
+    with col6:
+        img_resized_Derke = resize_image(image_Derke)
+        st.image(img_resized_Derke, caption="Presentación Derke")
+
+    with col7:
+        img_resized_Scream = resize_image(image_Scream)
+        st.image(img_resized_Scream, caption="Presentación Scream")
+
+    with col8:
+        img_resized_kiNgg = resize_image(image_kiNgg)
+        st.image(img_resized_kiNgg, caption="Presentación kiNgg")
+
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
-        
