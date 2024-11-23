@@ -44,6 +44,24 @@ def resize_image(image_path, width=130, height=152):
     img_resized = img.resize((width, height))  
     return img_resized
 
+# Función para agregar leyenda con tipografía personalizada
+def display_image_with_caption(image_path, caption):
+    img_resized = resize_image(image_path)
+    st.image(img_resized)
+    st.markdown(
+        f"""
+        <style>
+        .caption {{
+            font-family: 'Arial Black', sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }}
+        </style>
+        <p class="caption">{caption}</p>
+        """, unsafe_allow_html=True
+    )
+
 if st.session_state.page == "home":
     if st.button("Cuál fue el jugador con mejor rendimiento global del torneo"):
         st.session_state.page = "mejor_rendimiento"
@@ -57,64 +75,54 @@ if st.session_state.page == "home":
 elif st.session_state.page == "mejor_rendimiento":
     st.title("Jugador con mejor rendimiento")
     mejor_rendimiento()
-    img_resized_yay = resize_image(image_yay)
-    st.image(img_resized_yay, caption="Presentación yay")
+    display_image_with_caption(image_yay, "Presentación yay")
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
 elif st.session_state.page == "peor_rendimiento":
     st.title("Jugador con rendimiento mas bajo")
     peor_rendimiento()
-    img_resized_ange1 = resize_image(image_ANGE1)
-    st.image(img_resized_ange1, caption="Presentación ANGE1")
+    display_image_with_caption(image_ANGE1, "Presentación ANGE1")
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
 elif st.session_state.page == "mas_kills":
     st.title("Jugador con más bajas")
     mas_kills()
-    img_resized_yay = resize_image(image_yay)
-    st.image(img_resized_yay, caption="Presentación yay")
+    display_image_with_caption(image_yay, "Presentación yay")
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
 elif st.session_state.page == "mejor_rendimiento_por_equipo":
     st.title("Jugadores con el mejor rendimiento por equipo")
     mejor_rendimiento_por_equipo()
-    
+
+    # Usando las columnas para mostrar las imágenes
     col1, col2, col3, col4 = st.columns(4)  
     with col1:
-        img_resized_Less = resize_image(image_Less)
-        st.image(img_resized_Less, caption="Less Top 1")
+        display_image_with_caption(image_Less, "Less Top 1")
 
     with col2:
-        img_resized_yay = resize_image(image_yay)
-        st.image(img_resized_yay, caption="yay Top 2")
+        display_image_with_caption(image_yay, "yay Top 2")
 
     with col3:
-        img_resized_MaKo = resize_image(image_MaKo)
-        st.image(img_resized_MaKo, caption="MaKo Top 3")
+        display_image_with_caption(image_MaKo, "MaKo Top 3")
 
     with col4:
-        img_resized_suygetsu = resize_image(image_suygetsu)
-        st.image(img_resized_suygetsu, caption="suygetsu Top 4")
+        display_image_with_caption(image_suygetsu, "suygetsu Top 4")
 
     col5, col6, col7, col8 = st.columns(4)
     with col5:
-        img_resized_Cryocells = resize_image(image_Cryocells)
-        st.image(img_resized_Cryocells, caption="Cryocells Top 5")
+        display_image_with_caption(image_Cryocells, "Cryocells Top 5")
 
     with col6:
-        img_resized_Derke = resize_image(image_Derke)
-        st.image(img_resized_Derke, caption="Derke Top 6")
+        display_image_with_caption(image_Derke, "Derke Top 6")
 
     with col7:
-        img_resized_Scream = resize_image(image_Scream)
-        st.image(img_resized_Scream, caption="Scream Top 7")
+        display_image_with_caption(image_Scream, "Scream Top 7")
 
     with col8:
-        img_resized_kiNgg = resize_image(image_kiNgg)
-        st.image(img_resized_kiNgg, caption="kiNgg Top 8")
+        display_image_with_caption(image_kiNgg, "kiNgg Top 8")
 
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
