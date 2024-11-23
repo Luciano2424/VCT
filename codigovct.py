@@ -81,8 +81,6 @@ elif st.session_state.page == "mas_kills":
 elif st.session_state.page == "mejor_rendimiento_por_equipo":
     st.title("Jugadores con el mejor rendimiento por equipo")
     mejor_rendimiento_por_equipo()
-    img_resized_Less = resize_image(image_Less)
-    st.image(img_resized_Less, caption="Presentación Less")
     
     col1, col2, col3, col4 = st.columns(4)  
     with col1:
