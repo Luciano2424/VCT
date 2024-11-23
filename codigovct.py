@@ -83,8 +83,11 @@ elif st.session_state.page == "peor_rendimiento":
 elif st.session_state.page == "mas_kills":
     st.title("Jugador con más bajas")
     mas_kills()
+    col1, col2 = st.columns(2)
         with col1:
-        display_image_with_caption(image_MaKo, "Presentación yay")
+            display_image_with_caption(image_MaKo, "Presentación yay")
+        with col2:
+            display_image_with_caption(image_br, "Nacionalidad")
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
