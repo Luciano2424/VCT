@@ -44,7 +44,7 @@ if "page" not in st.session_state:
     st.session_state.page = "home"
 
 # Función para redimensionar imágenes
-def resize_image(image_path, width=113, height=152):
+def resize_image(image_path, width=130, height=152):
     img = Image.open(image_path)  # Abrir la imagen
     img_resized = img.resize((width, height))  # Redimensionar la imagen
     return img_resized
