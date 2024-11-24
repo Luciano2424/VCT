@@ -33,6 +33,34 @@ def mejor_rendimiento_por_equipo():
     filas_seleccionadas = df.iloc[[3, 5, 10, 17, 22, 25, 32, 35]]  
     st.dataframe(filas_seleccionadas)
 
+def LOUD_page():
+    Loud_video = "https://www.youtube.com/watch?v=CSyGWW305M8&ab_channel=LOUDVALORANT"
+    st.video(Loud_video)
+
+def OPTC_page():
+    OPTC_video = "https://www.youtube.com/watch?v=tCa7ky1qeXw&ab_channel=TeamReyna"
+    st.video(OPTC_video)
+
+def FPX_page():
+    FPX_video = "https://www.youtube.com/watch?v=W0P7kGERa4o&ab_channel=TeamReyna"
+    st.video(FPX_video)
+
+def XSET_page():
+    XSET_video = "https://www.youtube.com/watch?v=3jsUSJUhlHg&ab_channel=TeamReyna"
+    st.video(XSET_video)
+
+def FNC_page():
+    FNC_video = "https://www.youtube.com/watch?v=Yr5X5CoEgKU&ab_channel=TeamReyna"
+    st.video(FNC_video)
+
+def TL_page():
+    TL_video = "https://www.youtube.com/watch?v=_aJSUUvTDMY&ab_channel=TeamReyna"
+    st.video(TL_video)
+
+def LEV_page():
+    EV_video = "https://www.youtube.com/watch?v=cYaAr1mr0gY&ab_channel=LEVIATANVALORANT"
+    st.video(LEV_video)
+
 # Inicializar la página si no está definida
 if "page" not in st.session_state:
     st.session_state.page = "home"
@@ -203,6 +231,25 @@ if st.session_state.page == "home":
     st.pyplot()
 
 
+    if paginas_eqipos == "LOUD":
+        st.session_state.page = "LOUD_page"
+    elif paginas_equipos == "OPTC":
+        st.session_state.page = "OPTC_page"
+    elif paginas_equipos == "DRX":
+        st.session_state.page = "DRX_page"
+    elif paginas_equipos == "FPX":
+        st.session_state.page = "FPX_page"
+    elif paginas_equipos == "XSET":
+        st.session_state.page = "XSET_page"
+    elif paginas_equipos == "TNC":
+        st.session_state.page = "TNC_page"
+    elif paginas_equipos == "TL":
+        st.session_state.page = "TL_page"
+    elif paginas_equipos == "LEV":
+        st.session_state.page = "LEV_page"
+
+    
+    
     # Actualización de la página según la opción seleccionada
     if page_selection == "Cuál fue el jugador con mejor rendimiento global del torneo":
         st.session_state.page = "mejor_rendimiento"
