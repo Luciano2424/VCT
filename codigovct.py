@@ -59,29 +59,7 @@ def display_image_with_caption(image_path, caption):
         <p class="caption">{caption}</p>
         """, unsafe_allow_html=True
     )
-
-if st.session_state.page == "home":  
-    st.title("Datos que creemos te gustarán saber")
-
-    # Replace buttons with selectbox
-    page_selection = st.selectbox(
-    "Datos que creemos te gustarán saber",
-        ["Ház click para desplegar las opciones", "Cuál fue el jugador con mejor rendimiento global del torneo", 
-         "Cuál fue el jugador con peor rendimiento global del torneo", 
-         "Cuál fue el jugador con más kills?", 
-         "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?"]
-    )
-
-    # Change page immediately based on the selection
-    if page_selection == "Cuál fue el jugador con mejor rendimiento global del torneo":
-        st.session_state.page = "mejor_rendimiento"
-    elif page_selection == "Cuál fue el jugador con peor rendimiento global del torneo":
-        st.session_state.page = "peor_rendimiento"
-    elif page_selection == "Cuál fue el jugador con más kills?":
-        st.session_state.page = "mas_kills"
-    elif page_selection == "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?":
-        st.session_state.page = "mejor_rendimiento_por_equipo"
-
+    
 # Gráfico de KD/Rendimiento
 st.subheader("¡Descubre el Poder de los Equipos!")
 st.text("Este gráfico muestra cómo se desempeñan los equipos en cuanto a su ratio de Kills/Deaths (K/D). Los equipos con el mejor desempeño suelen tener una mayor proporción de muertes por baja, lo que refleja una ejecución más eficiente en el juego. ¡Ve quién lidera el torneo en rendimiento!")
@@ -141,6 +119,30 @@ plt.ylabel('Derrotas')
 plt.title('Equipo con más derrotas')
 plt.xticks(rotation="horizontal", ha="center")
 st.pyplot()  # Muestra el gráfico en Streamlit
+
+
+
+if st.session_state.page == "home":  
+    st.title("Datos que creemos te gustarán saber")
+
+    # Replace buttons with selectbox
+    page_selection = st.selectbox(
+    "Datos que creemos te gustarán saber",
+        ["Ház click para desplegar las opciones", "Cuál fue el jugador con mejor rendimiento global del torneo", 
+         "Cuál fue el jugador con peor rendimiento global del torneo", 
+         "Cuál fue el jugador con más kills?", 
+         "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?"]
+    )
+
+    # Change page immediately based on the selection
+    if page_selection == "Cuál fue el jugador con mejor rendimiento global del torneo":
+        st.session_state.page = "mejor_rendimiento"
+    elif page_selection == "Cuál fue el jugador con peor rendimiento global del torneo":
+        st.session_state.page = "peor_rendimiento"
+    elif page_selection == "Cuál fue el jugador con más kills?":
+        st.session_state.page = "mas_kills"
+    elif page_selection == "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?":
+        st.session_state.page = "mejor_rendimiento_por_equipo"
 
 
 elif st.session_state.page == "mejor_rendimiento":
