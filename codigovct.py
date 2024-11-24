@@ -76,14 +76,15 @@ if st.session_state.page == "home":
          "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?"]
       )
 
- if page_selection == "Cuál fue el jugador con mejor rendimiento global del torneo":
-            st.session_state.page = "mejor_rendimiento"
-    elif page_selection == "Cuál fue el jugador con peor rendimiento global del torneo":
-            st.session_state.page = "peor_rendimiento"
-    elif page_selection == "Cuál fue el jugador con más kills?":
-            st.session_state.page = "mas_kills"
-     elif page_selection == "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?":
-        st.session_state.page = "mejor_rendimiento_por_equipo"
+if page_selection == "Cuál fue el jugador con mejor rendimiento global del torneo":
+    st.session_state.page = "mejor_rendimiento"
+elif page_selection == "Cuál fue el jugador con peor rendimiento global del torneo":
+    st.session_state.page = "peor_rendimiento"
+elif page_selection == "Cuál fue el jugador con más kills?":
+    st.session_state.page = "mas_kills"
+elif page_selection == "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?":
+    st.session_state.page = "mejor_rendimiento_por_equipo"
+
 
     st.subheader("Mejores momentos del torneo")
 
