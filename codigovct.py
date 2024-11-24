@@ -63,7 +63,7 @@ if st.session_state.page == "home":
     st.title("Datos que creemos te gustarán saber")
 
     # Replace buttons with selectbox
-    page_selection = st.selectbox(,
+    page_selection = st.selectbox(
         ["Ház click para desplegar las opciones", "Cuál fue el jugador con mejor rendimiento global del torneo", 
          "Cuál fue el jugador con peor rendimiento global del torneo", 
          "Cuál fue el jugador con más kills?", 
