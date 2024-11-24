@@ -101,13 +101,13 @@ if st.session_state.page == "home":
     # Mostrar logos de los equipos
     col1, col2, col3 = st.columns([1, 1, 1]) 
     with col2:
-        display_logos(image_LOUD, "1 LOUD")
+        display_logo(image_LOUD, "1 LOUD")
 
     col4, col5, col6 = st.columns([1, 1, 1])  
     with col4:
-        display_logos(image_OPTC, "2 OPTC")
+        display_logo(image_OPTC, "2 OPTC")
     with col6:
-        display_logos(image_DRX, "3 DRX")
+        display_logo(image_DRX, "3 DRX")
 
     col7, col8, col9, col10, col11 = st.columns([1, 1, 1, 1, 1])  
     with col7:
@@ -121,28 +121,28 @@ if st.session_state.page == "home":
     with col11:
         display_logo(image_LEV, "8 Leviatán")
 
-   # Selección de datos adicionales
-page_selection = st.selectbox(
-    "Datos que creemos te gustarán saber",
-    ["Ház click para desplegar las opciones", 
-     "Cuál fue el jugador con mejor rendimiento global del torneo", 
-     "Cuál fue el jugador con peor rendimiento global del torneo", 
-     "Cuál fue el jugador con más kills?", 
-     "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?"]
-)
+    # Selección de datos adicionales
+    page_selection = st.selectbox(
+        "Datos que creemos te gustarán saber",
+        ["Ház click para desplegar las opciones", 
+         "Cuál fue el jugador con mejor rendimiento global del torneo", 
+         "Cuál fue el jugador con peor rendimiento global del torneo", 
+         "Cuál fue el jugador con más kills?", 
+         "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?"]
+    )
 
-# Redirigir a las páginas correspondientes según la selección del `selectbox`
-if page_selection == "Cuál fue el jugador con mejor rendimiento global del torneo":
-    st.session_state.page = "mejor_rendimiento"
+    # Redirigir a las páginas correspondientes según la selección del `selectbox`
+    if page_selection == "Cuál fue el jugador con mejor rendimiento global del torneo":
+        st.session_state.page = "mejor_rendimiento"
 
-elif page_selection == "Cuál fue el jugador con peor rendimiento global del torneo":
-    st.session_state.page = "peor_rendimiento"
+    elif page_selection == "Cuál fue el jugador con peor rendimiento global del torneo":
+        st.session_state.page = "peor_rendimiento"
 
-elif page_selection == "Cuál fue el jugador con más kills?":
-    st.session_state.page = "mas_kills"
+    elif page_selection == "Cuál fue el jugador con más kills?":
+        st.session_state.page = "mas_kills"
 
-elif page_selection == "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?":
-    st.session_state.page = "mejor_rendimiento_por_equipo"
+    elif page_selection == "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?":
+        st.session_state.page = "mejor_rendimiento_por_equipo"
 
 # Mostrar el contenido correspondiente
 if st.session_state.page == "mejor_rendimiento":
@@ -169,7 +169,8 @@ elif st.session_state.page == "mas_kills":
 elif st.session_state.page == "mejor_rendimiento_por_equipo":
     st.title("Jugadores con el mejor rendimiento por equipo")
     mejor_rendimiento_por_equipo()
-        # Primera fila de imágenes
+    
+    # Primera fila de imágenes
     col1, col2, col3, col4 = st.columns(4)
     with col1:
         display_image_with_caption(image_Less, "Less")
