@@ -71,12 +71,12 @@ def imagenes_logos(image_path, width=200, height=200):
         st.error(f"Error al cargar la imagen {image_path}: {e}")
         return None
 
-    # Función para mostrar la imagen con su nombre
+# Función para mostrar la imagen con su nombre
 def display_logo(image_path, name, width=100, height=100):
     img_resized = imagenes_logos(image_path, width, height)
     if img_resized:
         st.image(img_resized)
-        st.caption(name) 
+        st.caption(name)
 
 # Mostrar el contenido de la página principal
 if st.session_state.page == "home":
@@ -102,25 +102,25 @@ if st.session_state.page == "home":
     # Layout de los logos de los equipos
     col1, col2, col3 = st.columns([1, 1, 1]) 
     with col2:
-        display_logos(image_LOUD, "1 LOUD")
+        display_logo(image_LOUD, "1 LOUD")
 
     col4, col5, col6 = st.columns([1, 1, 1])  
     with col4:
-        display_logos(image_OPTC, "2 OPTC")
+        display_logo(image_OPTC, "2 OPTC")
     with col6:
-        display_logos(image_DRX, "3 DRX")
+        display_logo(image_DRX, "3 DRX")
 
     col7, col8, col9, col10, col11 = st.columns([1, 1, 1, 1, 1])  
     with col7:
-        display_logos2(image_FPX, "4 FPX")
+        display_logo(image_FPX, "4 FPX")
     with col8:
-        display_logos2(image_XSET, "5 XSET")
+        display_logo(image_XSET, "5 XSET")
     with col9:
-        display_logos2(image_FNC, "6 FNC")
+        display_logo(image_FNC, "6 FNC")
     with col10:
-        display_logos2(image_TL, "7 TeamLiquid")
+        display_logo(image_TL, "7 TeamLiquid")
     with col11:
-        display_logos2(image_LEV, "8 Leviatán")
+        display_logo(image_LEV, "8 Leviatán")
 
     # Selección de página
     page_selection = st.selectbox(
@@ -184,8 +184,8 @@ if st.session_state.page == "home":
     plt.xlabel('Equipo')
     plt.ylabel('Derrotas')
     plt.title('Equipo con más derrotas')
-    plt.xticks(rotation="horizontal", ha="center")
-    st.pyplot()  
+    plt.xticks(rotation="horizontal
+
 
     # Actualización de la página según la opción seleccionada
     if page_selection == "Cuál fue el jugador con mejor rendimiento global del torneo":
