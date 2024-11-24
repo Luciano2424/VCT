@@ -132,7 +132,7 @@ if st.session_state.page == "home":
          "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?"]
     )
 
- st.subheader("¡Descubre el Poder de los Equipos!")
+    st.subheader("¡Descubre el Poder de los Equipos!")
     st.text("Este gráfico muestra cómo se desempeñan los equipos en cuanto a su ratio de Kills/Deaths (K/D). Los equipos con el mejor desempeño suelen tener una mayor proporción de muertes por baja, lo que refleja una ejecución más eficiente en el juego. ¡Ve quién lidera el torneo en rendimiento!")
     plt.figure(figsize=(10, 6))
     kd = df.groupby('Team')['K/D'].mean().sort_values(ascending=False)
@@ -186,6 +186,16 @@ if st.session_state.page == "home":
     plt.title('Equipo con más derrotas')
     plt.xticks(rotation="horizontal", ha="center")
     st.pyplot()  
+
+    # Actualización de la página según la opción seleccionada
+    if page_selection == "Cuál fue el jugador con mejor rendimiento global del torneo":
+        st.session_state.page = "mejor_rendimiento"
+    elif page_selection == "Cuál fue el jugador con peor rendimiento global del torneo":
+        st.session_state.page = "peor_rendimiento"
+    elif page_selection == "Cuál fue el jugador con más kills?":
+        st.session_state.page = "mas_kills"
+    elif page_selection == "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?":
+        st.session_state.page = "mejor_rendimiento_por_equipo"
 
     # Actualización de la página según la opción seleccionada
     if page_selection == "Cuál fue el jugador con mejor rendimiento global del torneo":
