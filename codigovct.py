@@ -15,7 +15,7 @@ def mejor_rendimiento():
     
     # Asegúrate de que la imagen "yay.jpg" esté en la misma carpeta que el código
     try:
-        image_yay = Image.open("yay.jpg")  # Verifica que el archivo yay.jpg esté en la carpeta correcta
+        image_yay = Image.open("yay.jpeg")  # Verifica que el archivo yay.jpg esté en la carpeta correcta
         st.image(image_yay, caption="yay - Mejor rendimiento")
     except Exception as e:
         st.error(f"No se pudo cargar la imagen: {e}")
