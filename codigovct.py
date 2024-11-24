@@ -36,18 +36,18 @@ page_selection = st.selectbox(
     ]
 )
 
-# Cambiar el título de la página dinámicamente
 if page_selection == "Mejor rendimiento global":
-    st.set_page_config(page_title="Página 1")  # Cambiar título de la página
+    st.title("Página 1 - Mejor rendimiento global")
     mejor_rendimiento()
 elif page_selection == "Peor rendimiento global":
-    st.set_page_config(page_title="Página 2")  # Cambiar título de la página
+    st.title("Página 2 - Peor rendimiento global")
     peor_rendimiento()
 elif page_selection == "Jugador con más kills":
-    st.set_page_config(page_title="Página 3")  # Cambiar título de la página
+    st.title("Página 3 - Jugador con más kills")
     mas_kills()
 elif page_selection == "Mejor rendimiento por equipo":
-    st.set_page_config(page_title="Página 4")  # Cambiar título de la página
+    st.title("Página 4 - Mejor rendimiento por equipo")
     mejor_rendimiento_por_equipo()
 else:
     st.write("Selecciona una opción válida.")
+
