@@ -71,6 +71,13 @@ def imagenes_logos(image_path, width=200, height=200):
         st.error(f"Error al cargar la imagen {image_path}: {e}")
         return None
 
+    # Función para mostrar la imagen con su nombre
+def display_logo(image_path, name, width=100, height=100):
+    img_resized = imagenes_logos(image_path, width, height)
+    if img_resized:
+        st.image(img_resized)
+        st.caption(name) 
+
 # Mostrar el contenido de la página principal
 if st.session_state.page == "home":
     st.title("Análisis y Estadísticas del VCT Masters Reykjavik 2022: ¡Revive la Emoción del Torneo!")
@@ -91,13 +98,6 @@ if st.session_state.page == "home":
     image_OPTC = "OPTC.jpg"
     image_TL = "TL.jpg"
     image_LOUD = "LOUD.jpg"
-
-    # Función para mostrar la imagen con su nombre
-    def display_logos2(image_path, name, width=100, height=100):
-        img_resized = imagenes_logos(image_path, width, height)
-        if img_resized:
-            st.image(img_resized)
-            st.caption(name)  
 
     # Layout de los logos de los equipos
     col1, col2, col3 = st.columns([1, 1, 1]) 
