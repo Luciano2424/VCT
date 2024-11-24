@@ -76,7 +76,7 @@ if st.session_state.page == "home":
          "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?"]
       )
 
-     if page_selection == "Cuál fue el jugador con mejor rendimiento global del torneo":
+ if page_selection == "Cuál fue el jugador con mejor rendimiento global del torneo":
             st.session_state.page = "mejor_rendimiento"
     elif page_selection == "Cuál fue el jugador con peor rendimiento global del torneo":
             st.session_state.page = "peor_rendimiento"
