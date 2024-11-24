@@ -87,6 +87,24 @@ def display_logo(image_path, name, width=100, height=100):
         st.image(img_resized)
         st.caption(name)
 
+# Función para mostrar los logos de los equipos con tamaño 300x300
+def imagenes_logos_300(image_path, width=300, height=300):
+    try:
+        img = Image.open(image_path)
+        img_resized = img.resize((width, height))  # Tamaño actualizado a 300x300
+        return img_resized
+    except Exception as e:
+        st.error(f"Error al cargar la imagen {image_path}: {e}")
+        return None
+
+# Función para mostrar la imagen con su nombre con tamaño 300x300
+def display_logo_300(image_path, name, width=300, height=300):  # Tamaño 300x300
+    img_resized = imagenes_logos_300(image_path, width, height)
+    if img_resized:
+        st.image(img_resized)
+        st.caption(name)
+
+
 # Mostrar el contenido de la página principal
 if st.session_state.page == "home":
     st.title("Análisis y Estadísticas del VCT Masters Reykjavik 2022: ¡Revive la Emoción del Torneo!")
@@ -101,13 +119,13 @@ if st.session_state.page == "home":
     # Mostrar logos de los equipos
     col1, col2, col3 = st.columns([1, 1, 1]) 
     with col2:
-        display_logo(image_LOUD, "1 LOUD")
+        display_logo_300(image_LOUD, "1 LOUD")
 
     col4, col5, col6 = st.columns([1, 1, 1])  
     with col4:
-        display_logo(image_OPTC, "2 OPTC")
+        display_logo_300(image_OPTC, "2 OPTC")
     with col6:
-        display_logo(image_DRX, "3 DRX")
+        display_logo_300(image_DRX, "3 DRX")
 
     col7, col8, col9, col10, col11 = st.columns([1, 1, 1, 1, 1])  
     with col7:
