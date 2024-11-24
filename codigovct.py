@@ -48,8 +48,13 @@ def mejor_rendimiento_por_equipo():
 if "page" not in st.session_state:
     st.session_state.page = "home"
 
+def resize_image(image_path, width=250, height=250):
+    img = Image.open(image_path)
+    img_resized = img.resize((width, height))
+    return img_resized
+
 # Función para redimensionar imágenes
-def resize_image(image_path, width=130, height=152):
+def resize_imagenes(image_path, width=50, height=50):
     img = Image.open(image_path)
     img_resized = img.resize((width, height))
     return img_resized
