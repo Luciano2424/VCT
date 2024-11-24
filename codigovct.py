@@ -132,41 +132,32 @@ if st.session_state.page == "home":
     )
 
     # Redirigir a las páginas correspondientes según la selección del `selectbox`
-    if page_selection == "Cuál fue el jugador con mejor rendimiento global del torneo":
-        st.session_state.page = "mejor_rendimiento"
-
-    elif page_selection == "Cuál fue el jugador con peor rendimiento global del torneo":
-        st.session_state.page = "peor_rendimiento"
-
-    elif page_selection == "Cuál fue el jugador con más kills?":
-        st.session_state.page = "mas_kills"
-
-    elif page_selection == "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?":
-        st.session_state.page = "mejor_rendimiento_por_equipo"
+    if page_selection != "Ház click para desplegar las opciones":
+        st.session_state.page = page_selection
 
 # Mostrar el contenido correspondiente para las páginas secundarias
-if st.session_state.page == "mejor_rendimiento":
+if st.session_state.page == "Cuál fue el jugador con mejor rendimiento global del torneo":
     st.title("Jugador con mejor rendimiento")
     mejor_rendimiento()
     display_image_with_caption(image_yay, "Presentación yay")
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
-elif st.session_state.page == "peor_rendimiento":
+elif st.session_state.page == "Cuál fue el jugador con peor rendimiento global del torneo":
     st.title("Jugador con rendimiento más bajo")
     peor_rendimiento()
     display_image_with_caption(image_ANGE1, "Presentación ANGE1")
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
-elif st.session_state.page == "mas_kills":
+elif st.session_state.page == "Cuál fue el jugador con más kills?":
     st.title("Jugador con más bajas")
     mas_kills()
     display_image_with_caption(image_yay, "Presentación yay")
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
-elif st.session_state.page == "mejor_rendimiento_por_equipo":
+elif st.session_state.page == "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?":
     st.title("Jugadores con el mejor rendimiento por equipo")
     mejor_rendimiento_por_equipo()
     if st.button("Volver a la página principal"):
