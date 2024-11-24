@@ -65,7 +65,7 @@ if st.session_state.page == "home":
     # Replace buttons with selectbox
     page_selection = st.selectbox(
         "Selecciona una opción:",
-        ["Selecciona", "Cuál fue el jugador con mejor rendimiento global del torneo", 
+        ["Ház click para desplegar las opciones", "Cuál fue el jugador con mejor rendimiento global del torneo", 
          "Cuál fue el jugador con peor rendimiento global del torneo", 
          "Cuál fue el jugador con más kills?", 
          "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?"]
