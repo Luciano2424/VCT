@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from PIL import Image  # Asegúrate de que esta importación esté presente
 
 # Establecer la configuración de la página al principio
 st.set_page_config(page_title="Página de Datos", page_icon="📊", layout="centered")
@@ -11,8 +12,13 @@ df = pd.read_csv("valorant champions istanbul.csv")
 def mejor_rendimiento():
     filas_seleccionadas = df.iloc[[5]]  # Cambia el índice según tu CSV
     st.dataframe(filas_seleccionadas)
-    image_yay = Image.open("yay.jpg")  # Asegúrate de que el archivo yay.jpg esté en la misma carpeta
-    st.image(image_yay, caption="yay - Mejor rendimiento")
+    
+    # Asegúrate de que la imagen "yay.jpg" esté en la misma carpeta que el código
+    try:
+        image_yay = Image.open("yay.jpg")  # Verifica que el archivo yay.jpg esté en la carpeta correcta
+        st.image(image_yay, caption="yay - Mejor rendimiento")
+    except Exception as e:
+        st.error(f"No se pudo cargar la imagen: {e}")
     
     # Volver a la página principal
     if st.button("Volver a la página principal"):
