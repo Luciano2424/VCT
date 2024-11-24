@@ -137,47 +137,52 @@ elif st.session_state.page == "mejor_rendimiento_por_equipo":
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
-#Gráfico KD/Rendimiento
+# Gráfico de KD/Rendimiento
 plt.figure(figsize=(10, 6))
 kd = df.groupby('Team')['K/D'].mean().sort_values(ascending=False)
-plt.bar(kd.index,kd.values,color="purple")
-plt.xlabel('Team')
+plt.bar(kd.index, kd.values, color="purple")
+plt.xlabel('Equipo')
 plt.ylabel('Promedio K/D')
 plt.title('K/D promedio por equipo')
-_ = plt.xticks(rotation="horizontal", ha='right')
+plt.xticks(rotation="horizontal", ha='right')
+plt.show()
 
-#Gráfico Kills
+# Gráfico de kills
 plt.figure(figsize=(15, 6))
 kills = df.groupby('Player')['Kill'].mean().sort_values(ascending=False)
 plt.bar(kills.index, kills.values)
 plt.xlabel('Jugador')
-plt.ylabel('kills')
-plt.title('Jugador con mas kills')
-_ = plt.xticks(rotation=45, ha='right')
+plt.ylabel('Kills')
+plt.title('Jugador con más kills')
+plt.xticks(rotation=45, ha='right')
+plt.show()
 
-#Gráfico de Muertes
+# Gráfico de Muertes
 plt.figure(figsize=(15, 6))
-Muertes = df.groupby('Player')['Death'].mean().sort_values(ascending=False)
-plt.bar(Muertes.index, Muertes.values, color="Red")
+deaths = df.groupby('Player')['Death'].mean().sort_values(ascending=False)
+plt.bar(deaths.index, deaths.values, color="red")
 plt.xlabel('Jugador')
 plt.ylabel('Muertes')
-plt.title('Jugador con más muertes en el torneo')
-_ = plt.xticks(rotation=45,ha="center", )
+plt.title('Jugador con más muertes')
+plt.xticks(rotation=45, ha='right')
+plt.show()
 
-#Gráfico de Victorias por equipo
+# Gráfico de Victorias por equipo
 plt.figure(figsize=(15, 6))
-Victorias = df.groupby('Team')['Rounds Win'].mean()
-plt.bar(Victorias.index, Victorias.values,color="green")
+victories = df.groupby('Team')['Rounds Win'].mean()
+plt.bar(victories.index, victories.values, color="green")
 plt.xlabel('Equipo')
 plt.ylabel('Victorias')
-plt.title('Equipo con mas victorias')
-_ = plt.xticks(rotation="horizontal",ha="center")
+plt.title('Equipo con más victorias')
+plt.xticks(rotation="horizontal", ha="center")
+plt.show()
 
-#Grafico de Derrotas por equipo
+# Gráfico de Derrotas por equipo
 plt.figure(figsize=(15, 6))
-Derrotas = df.groupby('Team')['Rounds Lose'].mean()
-plt.bar(Derrotas.index, Derrotas.values,color="cyan")
+defeats = df.groupby('Team')['Rounds Lose'].mean()
+plt.bar(defeats.index, defeats.values, color="cyan")
 plt.xlabel('Equipo')
 plt.ylabel('Derrotas')
-plt.title('Equipo con mas derrotas del torneo')
-_ = plt.xticks(rotation="horizontal",ha="center")
+plt.title('Equipo con más derrotas')
+plt.xticks(rotation="horizontal", ha="center")
+plt.show()
