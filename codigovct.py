@@ -143,9 +143,9 @@ st.subheader("Mejores momentos del torneo")
 
 
 
+# Gráfico de KD/Rendimiento
 st.subheader("¡Descubre el Poder de los Equipos!")
 st.text("Este gráfico muestra cómo se desempeñan los equipos en cuanto a su ratio de Kills/Deaths (K/D). Los equipos con el mejor desempeño suelen tener una mayor proporción de muertes por baja, lo que refleja una ejecución más eficiente en el juego. ¡Ve quién lidera el torneo en rendimiento!")
-# Gráfico de KD/Rendimiento
 plt.figure(figsize=(10, 6))
 kd = df.groupby('Team')['K/D'].mean().sort_values(ascending=False)
 plt.bar(kd.index, kd.values, color="purple")
@@ -153,7 +153,7 @@ plt.xlabel('Equipo')
 plt.ylabel('Promedio K/D')
 plt.title('K/D promedio por equipo')
 plt.xticks(rotation="horizontal", ha='right')
-plt.show()
+st.pyplot()  # Muestra el gráfico en Streamlit
 
 # Gráfico de kills
 st.subheader("¿Quién es el Rey de las Bajas?")
@@ -165,7 +165,7 @@ plt.xlabel('Jugador')
 plt.ylabel('Kills')
 plt.title('Jugador con más kills')
 plt.xticks(rotation=45, ha='right')
-plt.show()
+st.pyplot()  # Muestra el gráfico en Streamlit
 
 # Gráfico de Muertes
 st.subheader("¡Las Muertes también Hablan!")
@@ -177,11 +177,11 @@ plt.xlabel('Jugador')
 plt.ylabel('Muertes')
 plt.title('Jugador con más muertes')
 plt.xticks(rotation=45, ha='right')
-plt.show()
+st.pyplot()  # Muestra el gráfico en Streamlit
 
 # Gráfico de Victorias por equipo
 st.subheader("Equipos Triunfadores: ¿Quién Tiene la Mayor Cantidad de Victorias?")
-st.text(" El éxito no solo se mide en kills, sino también en victorias. Este gráfico revela a los equipos que más veces han salido victoriosos durante el torneo, mostrando quién tiene el control total en el campo de juego. ¡Descubre al equipo imbatible de esta edición!")
+st.text("El éxito no solo se mide en kills, sino también en victorias. Este gráfico revela a los equipos que más veces han salido victoriosos durante el torneo, mostrando quién tiene el control total en el campo de juego. ¡Descubre al equipo imbatible de esta edición!")
 plt.figure(figsize=(15, 6))
 victories = df.groupby('Team')['Rounds Win'].mean()
 plt.bar(victories.index, victories.values, color="green")
@@ -189,7 +189,7 @@ plt.xlabel('Equipo')
 plt.ylabel('Victorias')
 plt.title('Equipo con más victorias')
 plt.xticks(rotation="horizontal", ha="center")
-plt.show()
+st.pyplot()  # Muestra el gráfico en Streamlit
 
 # Gráfico de Derrotas por equipo
 st.subheader("¿Quién Sufrió Más Derrotas?")
@@ -201,4 +201,4 @@ plt.xlabel('Equipo')
 plt.ylabel('Derrotas')
 plt.title('Equipo con más derrotas')
 plt.xticks(rotation="horizontal", ha="center")
-plt.show()
+st.pyplot()  # Muestra el gráfico en Streamlit
