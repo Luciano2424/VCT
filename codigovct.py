@@ -8,6 +8,16 @@ st.set_page_config(page_title="Página de Datos", page_icon="📊", layout="cent
 # Cargar el archivo CSV
 df = pd.read_csv("valorant champions istanbul.csv")
 
+image_yay = "yay.jpeg"
+image_Cryocells = "Cryocells.jpg"
+image_ANGE1 = "ANGE1.jpg"
+image_Derke = "Derke.jpg"
+image_MaKo = "MaKo.jpg"
+image_Scream = "Scream.jpg"
+image_kiNgg = "kiNgg.jpg"
+image_suygetsu = "suygetsu.jpg"
+image_Less = "Less.jpeg"
+
 # Definir las funciones para cada "página"
 def mejor_rendimiento():
     filas_seleccionadas = df.iloc[[5]]  # Cambia el índice según tu CSV
@@ -27,7 +37,13 @@ def mejor_rendimiento():
 def peor_rendimiento():
     filas_seleccionadas = df.iloc[[19]]  # Cambia el índice según tu CSV
     st.dataframe(filas_seleccionadas)
-    
+    # Asegúrate de que la imagen "yay.jpg" esté en la misma carpeta que el código
+    try:
+        image_yay = Image.open("yay.jpeg")  # Verifica que el archivo yay.jpg esté en la carpeta correcta
+        st.image(image_yay, caption="ANGE1 - Rendimiento más bajo")
+    except Exception as e:
+        st.error(f"No se pudo cargar la imagen: {e}")    
+        
     # Volver a la página principal
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
