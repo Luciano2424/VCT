@@ -49,6 +49,34 @@ def LOUD_page():
 def OPTC_page():
     OPTC_video = "https://www.youtube.com/watch?v=tCa7ky1qeXw&ab_channel=TeamReyna"
     st.video(OPTC_video)
+    st.text("""
+        LOUD es una organización de deportes electrónicos con sede en Brasil, conocida por su enfoque en varios juegos, 
+        pero especialmente por su éxito en Valorant. Fundada en 2018, LOUD rápidamente se posicionó como uno de los 
+        equipos más importantes de América Latina, ganando relevancia tanto a nivel nacional como internacional. 
+        La organización es famosa por su enfoque en la creación de contenido y la participación activa en las redes 
+        sociales, lo que ha ayudado a construir una gran base de seguidores.
+
+        En el VCT Masters Reykjavik 2022, LOUD se convirtió en uno de los equipos más sobresalientes en la historia 
+        de los VCT (Valorant Champions Tour) al ganar el torneo. Este evento, que fue el primer Masters presencial 
+        del circuito de Valorant, marcó un hito para los equipos de América Latina, ya que LOUD fue el primer equipo 
+        de la región en ganar un evento internacional de Valorant.
+
+        VCT Masters Reykjavik 2022 se celebró del 27 de abril al 24 de mayo de 2022 en Reikiavik, Islandia, y reunió 
+        a los mejores equipos del mundo. LOUD no solo destacó por su talento, sino también por su impresionante 
+        habilidad para adaptarse a los formatos internacionales y superar a equipos de regiones históricamente más 
+        fuertes, como Europa y Norteamérica.
+
+        Roster: LOUD llevó a su alineación estelar a Reykjavik, con jugadores como aspas, saadhak, pANcada, saadhak y Less. 
+        Estos jugadores fueron fundamentales para el éxito del equipo, especialmente aspas, quien se destacó como una de 
+        las estrellas más brillantes del torneo, destacando con su habilidad mecánica excepcional y su capacidad para 
+        dominar el campo de juego.
+
+        Campeones: LOUD hizo historia al vencer a KRÜ Esports en la final del torneo, lo que marcó el primer título 
+        internacional para un equipo de América Latina en la historia de Valorant. El equipo brasileño demostró una 
+        combinación de agresividad, control y estrategias innovadoras que los colocaron por encima de gigantes internacionales 
+        como Sentinels y Team Liquid.
+    """)
+
 
 def FPX_page():
     FPX_video = "https://www.youtube.com/watch?v=W0P7kGERa4o&ab_channel=TeamReyna"
