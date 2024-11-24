@@ -184,7 +184,8 @@ if st.session_state.page == "home":
     plt.xlabel('Equipo')
     plt.ylabel('Derrotas')
     plt.title('Equipo con más derrotas')
-    plt.xticks(rotation="horizontal
+    plt.xticks(rotation="horizontal")
+    st.pyplot()
 
 
     # Actualización de la página según la opción seleccionada
