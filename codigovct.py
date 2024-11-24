@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 from PIL import Image
+import matplotlib.pyplot as plt
 
 # Cargar el archivo CSV
 df = pd.read_csv("valorant champions istanbul.csv")
@@ -25,6 +26,18 @@ image_TL = "TL.jpg"
 image_LOUD = "LOUD.jpg"
 
 # Funciones para mostrar las estadísticas
+def mejor_rendimiento():
+    filas_seleccionadas = df.iloc[[5]]  # Cambia el índice según tu CSV
+    st.dataframe(filas_seleccionadas)
+
+def peor_rendimiento():
+    filas_seleccionadas = df.iloc[[19]]  # Cambia el índice según tu CSV
+    st.dataframe(filas_seleccionadas)
+
+def mas_kills():
+    filas_seleccionadas = df.iloc[[5]]  # Cambia el índice según tu CSV
+    st.dataframe(filas_seleccionadas)
+
 def mejor_rendimiento_por_equipo():
     filas_seleccionadas = df.iloc[[3, 5, 10, 17, 22, 25, 32, 35]]  # Cambia el índice según tu CSV
     st.dataframe(filas_seleccionadas)
@@ -109,29 +122,29 @@ if st.session_state.page == "home":
         display_logo(image_LEV, "8 Leviatán")
 
    # Selección de datos adicionales
-    page_selection = st.selectbox(
-        "Datos que creemos te gustarán saber",
-        ["Ház click para desplegar las opciones", 
-         "Cuál fue el jugador con mejor rendimiento global del torneo", 
-         "Cuál fue el jugador con peor rendimiento global del torneo", 
-         "Cuál fue el jugador con más kills?", 
-         "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?"]
-    )
+page_selection = st.selectbox(
+    "Datos que creemos te gustarán saber",
+    ["Ház click para desplegar las opciones", 
+     "Cuál fue el jugador con mejor rendimiento global del torneo", 
+     "Cuál fue el jugador con peor rendimiento global del torneo", 
+     "Cuál fue el jugador con más kills?", 
+     "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?"]
+)
 
-    # Redirigir a las páginas correspondientes según la selección del `selectbox`
-    if page_selection == "Cuál fue el jugador con mejor rendimiento global del torneo":
-        st.session_state.page = "mejor_rendimiento"
+# Redirigir a las páginas correspondientes según la selección del `selectbox`
+if page_selection == "Cuál fue el jugador con mejor rendimiento global del torneo":
+    st.session_state.page = "mejor_rendimiento"
 
-    elif page_selection == "Cuál fue el jugador con peor rendimiento global del torneo":
-        st.session_state.page = "peor_rendimiento"
+elif page_selection == "Cuál fue el jugador con peor rendimiento global del torneo":
+    st.session_state.page = "peor_rendimiento"
 
-    elif page_selection == "Cuál fue el jugador con más kills?":
-        st.session_state.page = "mas_kills"
+elif page_selection == "Cuál fue el jugador con más kills?":
+    st.session_state.page = "mas_kills"
 
-    elif page_selection == "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?":
-        st.session_state.page = "mejor_rendimiento_por_equipo"
+elif page_selection == "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?":
+    st.session_state.page = "mejor_rendimiento_por_equipo"
 
-# Mostrar el contenido correspondiente para las páginas secundarias
+# Mostrar el contenido correspondiente
 if st.session_state.page == "mejor_rendimiento":
     st.title("Jugador con mejor rendimiento")
     mejor_rendimiento()
@@ -155,8 +168,8 @@ elif st.session_state.page == "mas_kills":
 
 elif st.session_state.page == "mejor_rendimiento_por_equipo":
     st.title("Jugadores con el mejor rendimiento por equipo")
-    
-    # Primera fila de imágenes
+    mejor_rendimiento_por_equipo()
+        # Primera fila de imágenes
     col1, col2, col3, col4 = st.columns(4)
     with col1:
         display_image_with_caption(image_Less, "Less")
@@ -178,5 +191,7 @@ elif st.session_state.page == "mejor_rendimiento_por_equipo":
     with col8:
         display_image_with_caption(image_ANGE1, "ANGE1")
 
+    if st.button("Volver a la página principal"):
+        st.session_state.page = "home"
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
