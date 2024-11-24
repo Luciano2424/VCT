@@ -31,149 +31,77 @@ image_paths = {
 def mejor_rendimiento():
     filas_seleccionadas = df.iloc[[5]]
     st.dataframe(filas_seleccionadas)
-    st.image(image_paths["yay"], caption="yay - Jugador con mejor rendimiento")
-    # Volver a la página principal
-    if st.button("Volver a la página principal"):
-        st.session_state.page = "home"
 
 def peor_rendimiento():
     filas_seleccionadas = df.iloc[[19]]
     st.dataframe(filas_seleccionadas)
-    st.image(image_paths["ANGE1"], caption="ANGE1 - Rendimiento más bajo")
-    # Volver a la página principal
-    if st.button("Volver a la página principal"):
-        st.session_state.page = "home"
 
 def mas_kills():
     filas_seleccionadas = df.iloc[[5]]
     st.dataframe(filas_seleccionadas)
-    st.image(image_paths["yay"], caption="yay - Jugador con más bajas")
-    # Volver a la página principal
-    if st.button("Volver a la página principal"):
-        st.session_state.page = "home"
 
 def mejor_rendimiento_por_equipo():
     filas_seleccionadas = df.iloc[[3, 5, 10, 17, 22, 25, 32, 35]]
     st.dataframe(filas_seleccionadas)
-    
-    # Primera fila de imágenes
-    col1, col2, col3, col4 = st.columns(4)
-    with col1:
-        try:
-            image1 = Image.open(image_paths["Less"])
-            st.image(image1, caption="Less")
-        except Exception as e:
-            st.error(f"No se pudo cargar la imagen Less: {e}")
-    
-    with col2:
-        try:
-            image2 = Image.open(image_paths["ANGE1"])
-            st.image(image2, caption="ANGE1")
-        except Exception as e:
-            st.error(f"No se pudo cargar la imagen ANGE1: {e}")
-    
-    with col3:
-        try:
-            image3 = Image.open(image_paths["MaKo"])
-            st.image(image3, caption="MaKo")
-        except Exception as e:
-            st.error(f"No se pudo cargar la imagen MaKo: {e}")
-    
-    with col4:
-        try:
-            image4 = Image.open(image_paths["suygetsu"])
-            st.image(image4, caption="suygetsu")
-        except Exception as e:
-            st.error(f"No se pudo cargar la imagen suygetsu: {e}")
 
-    # Segunda fila de imágenes
-    col5, col6, col7, col8 = st.columns(4)
-    with col5:
-        try:
-            image5 = Image.open(image_paths["Cryocells"])
-            st.image(image5, caption="Cryocells")
-        except Exception as e:
-            st.error(f"No se pudo cargar la imagen Cryocells: {e}")
-    
-    with col6:
-        try:
-            image6 = Image.open(image_paths["Derke"])
-            st.image(image6, caption="Derke")
-        except Exception as e:
-            st.error(f"No se pudo cargar la imagen Derke: {e}")
-    
-    with col7:
-        try:
-            image7 = Image.open(image_paths["Scream"])
-            st.image(image7, caption="Scream")
-        except Exception as e:
-            st.error(f"No se pudo cargar la imagen Scream: {e}")
-    
-    with col8:
-        try:
-            image8 = Image.open(image_paths["kiNgg"])
-            st.image(image8, caption="kiNgg")
-        except Exception as e:
-            st.error(f"No se pudo cargar la imagen kiNgg: {e}")
-
-    # Volver a la página principal
-    if st.button("Volver a la página principal"):
-        st.session_state.page = "home"
-
-
-# Configurar la página de inicio si no existe en el estado de sesión
+# Aseguramos que "page" esté en el estado de sesión
 if "page" not in st.session_state:
     st.session_state.page = "home"
 
-# Página principal (home)
-if st.session_state.page == "home":
-    st.title("Bienvenido a la página principal")
-    video_presentación_ = "https://www.youtube.com/watch?v=j2Z4qYJ3Jtc&ab_channel=VALORANTChampionsTour"
-    st.video(video_presentación_)
-    # Selección de la página a navegar
-    page_selection = st.selectbox(
-        "Selecciona una opción para ver los datos:",
-        [
-            "Seleccione una opción",
-            "Mejor rendimiento global",
-            "Peor rendimiento global",
-            "Jugador con más kills",
-            "Mejor rendimiento por equipo"
-        ]
+# Función para redimensionar imágenes
+def resize_image(image_path, width=130, height=152):
+    img = Image.open(image_path)
+    img_resized = img.resize((width, height))
+    return img_resized
+
+# Función para mostrar imágenes con su título
+def display_image_with_caption(image_path, caption):
+    img_resized = resize_image(image_path)
+    st.image(img_resized)
+    st.markdown(
+        f"""
+        <style>
+        .caption {{
+            font-family: 'Arial Black', sans-serif;
+            font-size: 15px;
+            font-weight: bold;
+        }}
+        </style>
+        <p class="caption">{caption}</p>
+        """, unsafe_allow_html=True
     )
 
-    # Cambiar el estado de la página
-    if page_selection == "Mejor rendimiento global":
-        st.session_state.page = "mejor_rendimiento"
-    elif page_selection == "Peor rendimiento global":
-        st.session_state.page = "peor_rendimiento"
-    elif page_selection == "Jugador con más kills":
-        st.session_state.page = "mas_kills"
-    elif page_selection == "Mejor rendimiento por equipo":
-        st.session_state.page = "mejor_rendimiento_por_equipo"
+# Lógica de la aplicación principal
+if st.session_state.page == "home":  
+    st.title("Datos que creemos te gustarán saber")
+    
+    # URL del video de YouTube
+    video_presentación_ = "https://www.youtube.com/watch?v=j2Z4qYJ3Jtc&ab_channel=VALORANTChampionsTour"
+    st.video(video_presentación_)
+    
+    # Mostrar logos de los equipos
+    col1, col2, col3 = st.columns([1, 1, 1])
+    with col2:
+        display_image_with_caption(image_paths["LOUD"], "1 LOUD")
 
-# Página 1: Mejor rendimiento
-elif st.session_state.page == "mejor_rendimiento":
-    st.title("Jugador con mejor rendimiento global")
-    mejor_rendimiento()
+    col4, col5, col6 = st.columns([1, 1, 1])  
+    with col4:
+        display_image_with_caption(image_paths["OPTC"], "2 OPTC")
+    with col6:
+        display_image_with_caption(image_paths["DRX"], "3 DRX")
 
-# Página 2: Peor rendimiento
-elif st.session_state.page == "peor_rendimiento":
-    st.title("Jugador con peor rendimiento global")
-    peor_rendimiento()
-
-# Página 3: Jugador con más kills
-elif st.session_state.page == "mas_kills":
-    st.title("Jugador con más kills")
-    mas_kills()
-
-# Página 4: Mejor rendimiento por equipo
-elif st.session_state.page == "mejor_rendimiento_por_equipo":
-    st.title("Jugadores con mejor rendimiento por equipo")
-    mejor_rendimiento_por_equipo()
-
-# Después de las páginas de rendimiento, mostramos los gráficos
-if st.session_state.page == "home":
+    col7, col8, col9, col10, col11 = st.columns([1, 1, 1, 1, 1])  
+    with col7:
+        display_image_with_caption(image_paths["FPX"], "4 FPX")
+    with col8:
+        display_image_with_caption(image_paths["XSET"], "5 XSET")
+    with col9:
+        display_image_with_caption(image_paths["FNC"], "6 FNC")
+    with col10:
+        display_image_with_caption(image_paths["TL"], "7 TeamLiquid")
+    with col11:
+        display_image_with_caption(image_paths["LEV"], "8 Leviatán")
+        
     # Visualizaciones de gráficos
     st.subheader("¡Descubre el Poder de los Equipos!")
     st.text("Este gráfico muestra cómo se desempeñan los equipos en cuanto a su ratio de Kills/Deaths (K/D)...")
@@ -207,7 +135,7 @@ if st.session_state.page == "home":
     plt.title('Equipo con más victorias')
     plt.xticks(rotation="horizontal", ha="center")
     st.pyplot()
-
+    
     st.subheader("¿Quién Sufrió Más Derrotas?")
     st.text("Este gráfico muestra a los equipos con más derrotas, lo que podría reflejar puntos débiles...")
     plt.figure(figsize=(15, 6))
