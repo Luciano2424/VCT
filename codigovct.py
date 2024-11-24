@@ -27,7 +27,7 @@ image_LOUD = "LOUD.jpg"
 
 # Funciones para mostrar las estadísticas
 def mejor_rendimiento():
-    filas_seleccionadas = df.iloc[[5]]  # Puedes cambiar el índice según tu CSV
+    filas_seleccionadas = df.iloc[[5]]  # Cambia el índice según tu CSV
     st.dataframe(filas_seleccionadas)
 
 def peor_rendimiento():
@@ -67,7 +67,7 @@ def TL_page():
     st.video(TL_video)
 
 def LEV_page():
-    EV_video = "https://www.youtube.com/watch?v=cYaAr1mr0gY&ab_channel=LEVIATANVALORANT"
+    LEV_video = "https://www.youtube.com/watch?v=cYaAr1mr0gY&ab_channel=LEVIATANVALORANT"
     st.video(LEV_video)
 
 # Inicializar la página si no está definida
@@ -149,7 +149,7 @@ if st.session_state.page == "home":
     with col11:
         display_logo(image_LEV, "8 Leviatán")
 
-    # Selección de página
+    # Selección de página de equipo
     paginas_equipos = st.selectbox(
         "Deseas ver los mejores momentos de cada equipo?",
         ["Selecciona el equipo del cual te gustaría saber más", 
@@ -163,16 +163,7 @@ if st.session_state.page == "home":
          "LEV"]
     )
 
-    # Selección de página
-    page_selection = st.selectbox(
-        "Datos que creemos te gustarán saber",
-        ["Ház click para desplegar las opciones", 
-         "Cuál fue el jugador con mejor rendimiento global del torneo", 
-         "Cuál fue el jugador con peor rendimiento global del torneo", 
-         "Cuál fue el jugador con más kills?", 
-         "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?"]
-    )
-
+    # Mostrar gráficos de K/D, kills y muertes
     st.subheader("¡Descubre el Poder de los Equipos!")
     st.text("Este gráfico muestra cómo se desempeñan los equipos en cuanto a su ratio de Kills/Deaths (K/D). Los equipos con el mejor desempeño suelen tener una mayor proporción de muertes por baja, lo que refleja una ejecución más eficiente en el juego. ¡Ve quién lidera el torneo en rendimiento!")
     plt.figure(figsize=(10, 6))
@@ -206,9 +197,37 @@ if st.session_state.page == "home":
     plt.xticks(rotation=45, ha='right')
     st.pyplot() 
 
-    # Llamada a la página correspondiente
+    # Llamada a la página correspondiente del equipo
     if paginas_equipos != "Selecciona el equipo del cual te gustaría saber más":
         st.session_state.page = f"{paginas_equipos}_page"
+
+    # Selección de datos adicionales
+    page_selection = st.selectbox(
+        "Datos que creemos te gustarán saber",
+        ["Ház click para desplegar las opciones", 
+         "Cuál fue el jugador con mejor rendimiento global del torneo", 
+         "Cuál fue el jugador con peor rendimiento global del torneo", 
+         "Cuál fue el jugador con más kills?", 
+         "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?"]
+    )
+
+    # Llamar a la función correspondiente según la selección
+    if page_selection == "Cuál fue el jugador con mejor rendimiento global del torneo":
+        st.session_state.page = "mejor_rendimiento"
+        mejor_rendimiento()
+    elif page_selection == "Cuál fue el jugador con peor rendimiento global del torneo":
+        st.session_state.page = "peor_rendimiento"
+        peor_rendimiento()
+    elif page_selection == "Cuál fue el jugador con más kills?":
+        st.session_state.page = "mas_kills"
+        mas_kills()
+    elif page_selection == "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?":
+        st.session_state.page = "mejor_rendimiento_por_equipo"
+        mejor_rendimiento_por_equipo()
+
+    # Botón para volver a la página principal
+    if st.button("Volver a la página principal"):
+        st.session_state.page = "home"
 
 # Páginas de equipos específicos
 elif st.session_state.page == "LOUD_page":
@@ -243,30 +262,5 @@ elif st.session_state.page == "TL_page":
 
 elif st.session_state.page == "LEV_page":
     LEV_page()
-    if st.button("Volver a la página principal"):
-        st.session_state.page = "home"
-
-
-if page_selection == "Cuál fue el jugador con mejor rendimiento global del torneo":
-    st.session_state.page = "mejor_rendimiento"
-    mejor_rendimiento()
-    if st.button("Volver a la página principal"):
-        st.session_state.page = "home"
-
-elif page_selection == "Cuál fue el jugador con peor rendimiento global del torneo":
-    st.session_state.page = "peor_rendimiento"
-    peor_rendimiento()
-    if st.button("Volver a la página principal"):
-        st.session_state.page = "home"
-
-elif page_selection == "Cuál fue el jugador con más kills?":
-    st.session_state.page = "mas_kills"
-    mas_kills()
-    if st.button("Volver a la página principal"):
-        st.session_state.page = "home"
-
-elif page_selection == "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?":
-    st.session_state.page = "mejor_rendimiento_por_equipo"
-    mejor_rendimiento_por_equipo()
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
