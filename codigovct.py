@@ -111,10 +111,7 @@ if st.session_state.page == "home":
     
     video_presentación_ = "https://www.youtube.com/watch?v=j2Z4qYJ3Jtc&ab_channel=VALORANTChampionsTour"
     st.video(video_presentación_)
-
-    col1, col2, col3 = st.columns([1, 3, 1])  
-    with col2:
-        st.subheader("Presentación de los equipos participantes del torneo")
+    st.subheader("Presentación de los equipos participantes del torneo")
 
     # Mostrar logos de los equipos
     col1, col2, col3 = st.columns([1, 1, 1]) 
