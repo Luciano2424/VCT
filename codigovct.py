@@ -128,7 +128,8 @@ if "page" not in st.session_state:
 # Página principal (home)
 if st.session_state.page == "home":
     st.title("Bienvenido a la página principal")
-    
+    video_presentación_ = "https://www.youtube.com/watch?v=j2Z4qYJ3Jtc&ab_channel=VALORANTChampionsTour"
+    st.video(video_presentación_)
     # Selección de la página a navegar
     page_selection = st.selectbox(
         "Selecciona una opción para ver los datos:",
