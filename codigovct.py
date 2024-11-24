@@ -123,6 +123,21 @@ if st.session_state.page == "home":
         display_logo(image_LEV, "8 Leviatán")
 
     # Selección de página
+    paginas_equipos = st.selectbox(
+        "Deseas ver los mejores momentos de cada equipo?",
+        ["Selecciona el equipo del cual te gustaria saber más", 
+         "LOUD", 
+         "OPTC", 
+         "DRX", 
+         "FPX",
+         "XSET",
+         "FNC",
+         "TL",
+         "LEV"]
+    )
+
+    
+    # Selección de página
     page_selection = st.selectbox(
         "Datos que creemos te gustarán saber",
         ["Ház click para desplegar las opciones", 
@@ -187,16 +202,6 @@ if st.session_state.page == "home":
     plt.xticks(rotation="horizontal")
     st.pyplot()
 
-
-    # Actualización de la página según la opción seleccionada
-    if page_selection == "Cuál fue el jugador con mejor rendimiento global del torneo":
-        st.session_state.page = "mejor_rendimiento"
-    elif page_selection == "Cuál fue el jugador con peor rendimiento global del torneo":
-        st.session_state.page = "peor_rendimiento"
-    elif page_selection == "Cuál fue el jugador con más kills?":
-        st.session_state.page = "mas_kills"
-    elif page_selection == "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?":
-        st.session_state.page = "mejor_rendimiento_por_equipo"
 
     # Actualización de la página según la opción seleccionada
     if page_selection == "Cuál fue el jugador con mejor rendimiento global del torneo":
