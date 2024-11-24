@@ -63,15 +63,15 @@ def display_image_with_caption(image_path, caption):
 if st.session_state.page == "home":  
     st.title("Datos que creemos te gustarán saber")
     
-# URL del video de YouTube
-video_presentación_ = "https://www.youtube.com/watch?v=j2Z4qYJ3Jtc&ab_channel=VALORANTChampionsTour"
+    # URL del video de YouTube
+    video_presentación_ = "https://www.youtube.com/watch?v=j2Z4qYJ3Jtc&ab_channel=VALORANTChampionsTour"
 
-# Mostrar el video de YouTube
-st.video(video_presentación)
+    # Mostrar el video de YouTube
+    st.video(video_presentación_)
 
     # Replace buttons with selectbox
     page_selection = st.selectbox(
-    "Datos que creemos te gustarán saber",
+        "Datos que creemos te gustarán saber",
         ["Ház click para desplegar las opciones", "Cuál fue el jugador con mejor rendimiento global del torneo", 
          "Cuál fue el jugador con peor rendimiento global del torneo", 
          "Cuál fue el jugador con más kills?", 
@@ -88,7 +88,7 @@ st.video(video_presentación)
     elif page_selection == "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?":
         st.session_state.page = "mejor_rendimiento_por_equipo"
 
-# Mostrar gráficos solo en la página principal
+    # Mostrar gráficos solo en la página principal
     st.subheader("Mejores momentos del torneo")
 
     # Gráfico de KD/Rendimiento
