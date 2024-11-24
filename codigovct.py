@@ -47,7 +47,8 @@ def mejor_rendimiento_por_equipo():
     filas_seleccionadas = df.iloc[[3, 5, 10, 17, 22, 25, 32, 35]]  # Cambia el índice según tu CSV
     st.dataframe(filas_seleccionadas)
     
-   col1, col2, col3, col4 = st.columns(4)
+    # Primera fila de imágenes
+    col1, col2, col3, col4 = st.columns(4)
     with col1:
         try:
             image1 = Image.open(image_Less)
@@ -109,6 +110,7 @@ def mejor_rendimiento_por_equipo():
     # Volver a la página principal
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
+
 
 # Configurar la página de inicio si no existe en el estado de sesión
 if "page" not in st.session_state:
