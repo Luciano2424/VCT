@@ -93,7 +93,7 @@ if st.session_state.page == "home":
     image_LOUD = "LOUD.jpg"
 
     # Función para mostrar la imagen con su nombre
-    def display_logos(image_path, name, width=100, height=100):
+    def display_logos2(image_path, name, width=100, height=100):
         img_resized = imagenes_logos(image_path, width, height)
         if img_resized:
             st.image(img_resized)
@@ -112,15 +112,15 @@ if st.session_state.page == "home":
 
     col7, col8, col9, col10, col11 = st.columns([1, 1, 1, 1, 1])  
     with col7:
-        display_logos(image_FPX, "4 FPX")
+        display_logos2(image_FPX, "4 FPX")
     with col8:
-        display_logos(image_XSET, "5 XSET")
+        display_logos2(image_XSET, "5 XSET")
     with col9:
-        display_logos(image_FNC, "6 FNC")
+        display_logos2(image_FNC, "6 FNC")
     with col10:
-        display_logos(image_TL, "7 TeamLiquid")
+        display_logos2(image_TL, "7 TeamLiquid")
     with col11:
-        display_logos(image_LEV, "8 Leviatán")
+        display_logos2(image_LEV, "8 Leviatán")
 
     # Selección de página
     page_selection = st.selectbox(
