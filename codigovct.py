@@ -22,14 +22,7 @@ image_Less = "Less.jpeg"
 def mejor_rendimiento():
     filas_seleccionadas = df.iloc[[5]]  # Cambia el índice según tu CSV
     st.dataframe(filas_seleccionadas)
-    
-    # Asegúrate de que la imagen "yay.jpg" esté en la misma carpeta que el código
-    try:
-        image_yay = Image.open("yay.jpeg")  # Verifica que el archivo yay.jpg esté en la carpeta correcta
-        st.image(image_yay, caption="yay - Mejor rendimiento")
-    except Exception as e:
-        st.error(f"No se pudo cargar la imagen: {e}")
-    
+    st.image(image_yay, caption="yay - Mejor rendimiento")
     # Volver a la página principal
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
