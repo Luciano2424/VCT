@@ -1,8 +1,9 @@
 import streamlit as st
 import pandas as pd
-from PIL import Image  
+from PIL import Image
 import matplotlib.pyplot as plt
 
+# Cargar el archivo CSV
 df = pd.read_csv("valorant champions istanbul.csv")
 
 # Rutas de imágenes
@@ -15,22 +16,30 @@ image_Scream = "Scream.jpg"
 image_kiNgg = "kiNgg.jpg"
 image_suygetsu = "suygetsu.jpg"
 image_Less = "Less.jpeg"
+image_LEV = "LEV.jpg"
+image_DRX = "DRX.jpg"
+image_XSET = "XSET.jpg"
+image_FNC = "FNC.jpg"
+image_FPX = "FPX.jpg"
+image_OPTC = "OPTC.jpg"
+image_TL = "TL.jpg"
+image_LOUD = "LOUD.jpg"
 
 # Funciones para mostrar las estadísticas
 def mejor_rendimiento():
-    filas_seleccionadas = df.iloc[[5]]  
+    filas_seleccionadas = df.iloc[[5]]  # Puedes cambiar el índice según tu CSV
     st.dataframe(filas_seleccionadas)
 
 def peor_rendimiento():
-    filas_seleccionadas = df.iloc[[19]]  
+    filas_seleccionadas = df.iloc[[19]]  # Cambia el índice según tu CSV
     st.dataframe(filas_seleccionadas)
 
 def mas_kills():
-    filas_seleccionadas = df.iloc[[5]]  
+    filas_seleccionadas = df.iloc[[5]]  # Cambia el índice según tu CSV
     st.dataframe(filas_seleccionadas)
 
 def mejor_rendimiento_por_equipo():
-    filas_seleccionadas = df.iloc[[3, 5, 10, 17, 22, 25, 32, 35]]  
+    filas_seleccionadas = df.iloc[[3, 5, 10, 17, 22, 25, 32, 35]]  # Cambia el índice según tu CSV
     st.dataframe(filas_seleccionadas)
 
 def LOUD_page():
@@ -67,8 +76,8 @@ if "page" not in st.session_state:
 
 # Función para redimensionar imágenes
 def resize_image(image_path, width=130, height=152):
-    img = Image.open(image_path)  
-    img_resized = img.resize((width, height))  
+    img = Image.open(image_path)
+    img_resized = img.resize((width, height))
     return img_resized
 
 # Función para mostrar imagen con su pie de foto
@@ -118,16 +127,6 @@ if st.session_state.page == "home":
         st.subheader("Presentación de los equipos participantes del torneo")
 
     # Mostrar logos de los equipos
-    image_LEV = "LEV.jpg"
-    image_DRX = "DRX.jpg"
-    image_XSET = "XSET.jpg"
-    image_FNC = "FNC.jpg"
-    image_FPX = "FPX.jpg"
-    image_OPTC = "OPTC.jpg"
-    image_TL = "TL.jpg"
-    image_LOUD = "LOUD.jpg"
-
-    # Layout de los logos de los equipos
     col1, col2, col3 = st.columns([1, 1, 1]) 
     with col2:
         display_logo(image_LOUD, "1 LOUD")
@@ -153,7 +152,7 @@ if st.session_state.page == "home":
     # Selección de página
     paginas_equipos = st.selectbox(
         "Deseas ver los mejores momentos de cada equipo?",
-        ["Selecciona el equipo del cual te gustaria saber más", 
+        ["Selecciona el equipo del cual te gustaría saber más", 
          "LOUD", 
          "OPTC", 
          "DRX", 
@@ -164,7 +163,6 @@ if st.session_state.page == "home":
          "LEV"]
     )
 
-    
     # Selección de página
     page_selection = st.selectbox(
         "Datos que creemos te gustarán saber",
@@ -198,7 +196,7 @@ if st.session_state.page == "home":
     st.pyplot()  
 
     st.subheader("¡Las Muertes también Hablan!")
-    st.text("A veces el precio del juego es alto, y este gráfico la cantidad de muertes de cada jugador. Aunque no es lo más positivo, saber quién lidera en esta categoría puede dar pistas sobre el estilo de juego o los desafíos a los que se enfrentan los jugadores. ¡Entérate de quiénes son los más golpeados en el torneo!")
+    st.text("A veces el precio del juego es alto, y este gráfico muestra la cantidad de muertes de cada jugador. Aunque no es lo más positivo, saber quién lidera en esta categoría puede dar pistas sobre el estilo de juego o los desafíos a los que se enfrentan los jugadores. ¡Entérate de quiénes son los más golpeados en el torneo!")
     plt.figure(figsize=(15, 6))
     deaths = df.groupby('Player')['Death'].mean().sort_values(ascending=False)
     plt.bar(deaths.index, deaths.values, color="red")
@@ -206,94 +204,45 @@ if st.session_state.page == "home":
     plt.ylabel('Muertes')
     plt.title('Jugador con más muertes')
     plt.xticks(rotation=45, ha='right')
-    st.pyplot()  
+    st.pyplot() 
 
-    st.subheader("Equipos Triunfadores: ¿Quién Tiene la Mayor Cantidad de Victorias?")
-    st.text("El éxito no solo se mide en kills, sino también en victorias. Este gráfico revela a los equipos que más veces han salido victoriosos durante el torneo, mostrando quién tiene el control total en el campo de juego. ¡Descubre al equipo imbatible de esta edición!")
-    plt.figure(figsize=(15, 6))
-    victories = df.groupby('Team')['Rounds Win'].mean()
-    plt.bar(victories.index, victories.values, color="green")
-    plt.xlabel('Equipo')
-    plt.ylabel('Victorias')
-    plt.title('Equipo con más victorias')
-    plt.xticks(rotation="horizontal", ha="center")
-    st.pyplot()  
+    # Llamada a la página correspondiente
+    if paginas_equipos != "Selecciona el equipo del cual te gustaría saber más":
+        st.session_state.page = f"{paginas_equipos}_page"
 
-    st.subheader("¿Quién Sufrió Más Derrotas?")
-    st.text("Aunque cada derrota es una oportunidad para aprender, algunos equipos han tenido más dificultades que otros. Este gráfico muestra a los equipos con más derrotas, lo que podría reflejar puntos débiles o dificultades para adaptarse al estilo del torneo. ¡Descubre qué equipos tuvieron más trabajo durante la competencia!")
-    plt.figure(figsize=(15, 6))
-    defeats = df.groupby('Team')['Rounds Lose'].mean()
-    plt.bar(defeats.index, defeats.values, color="cyan")
-    plt.xlabel('Equipo')
-    plt.ylabel('Derrotas')
-    plt.title('Equipo con más derrotas')
-    plt.xticks(rotation="horizontal")
-    st.pyplot()
-
-
-    if paginas_eqipos == "LOUD":
-        st.session_state.page = "LOUD_page"
-    elif paginas_equipos == "OPTC":
-        st.session_state.page = "OPTC_page"
-    elif paginas_equipos == "DRX":
-        st.session_state.page = "DRX_page"
-    elif paginas_equipos == "FPX":
-        st.session_state.page = "FPX_page"
-    elif paginas_equipos == "XSET":
-        st.session_state.page = "XSET_page"
-    elif paginas_equipos == "TNC":
-        st.session_state.page = "TNC_page"
-    elif paginas_equipos == "TL":
-        st.session_state.page = "TL_page"
-    elif paginas_equipos == "LEV":
-        st.session_state.page = "LEV_page"
-
-    
-    
-    # Actualización de la página según la opción seleccionada
-    if page_selection == "Cuál fue el jugador con mejor rendimiento global del torneo":
-        st.session_state.page = "mejor_rendimiento"
-    elif page_selection == "Cuál fue el jugador con peor rendimiento global del torneo":
-        st.session_state.page = "peor_rendimiento"
-    elif page_selection == "Cuál fue el jugador con más kills?":
-        st.session_state.page = "mas_kills"
-    elif page_selection == "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?":
-        st.session_state.page = "mejor_rendimiento_por_equipo"
-
-# Otras páginas según la selección
-elif st.session_state.page == "mejor_rendimiento":
-    st.title("Jugador con mejor rendimiento")
-    mejor_rendimiento()
-    display_image_with_caption(image_yay, "Presentación yay")
+# Páginas de equipos específicos
+elif st.session_state.page == "LOUD_page":
+    LOUD_page()
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
-elif st.session_state.page == "peor_rendimiento":
-    st.title("Jugador con rendimiento más bajo")
-    peor_rendimiento()
-    display_image_with_caption(image_ANGE1, "Presentación ANGE1")
+elif st.session_state.page == "OPTC_page":
+    OPTC_page()
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
-elif st.session_state.page == "mas_kills":
-    st.title("Jugador con más bajas")
-    mas_kills()
-    display_image_with_caption(image_yay, "Presentación yay")
+elif st.session_state.page == "FPX_page":
+    FPX_page()
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
-elif st.session_state.page == "mejor_rendimiento_por_equipo":
-    st.title("Jugadores con el mejor rendimiento por equipo")
-    mejor_rendimiento_por_equipo()
-    # Mostrar imágenes de los jugadores
-    col1, col2, col3, col4 = st.columns(4)  
-    with col1:
-        display_image_with_caption(image_Less, "Less Top 1")
-    with col2:
-        display_image_with_caption(image_yay, "yay Top 2")
-    with col3:
-        display_image_with_caption(image_MaKo, "MaKo Top 3")
-    with col4:
-        display_image_with_caption(image_suygetsu, "suygetsu")
+elif st.session_state.page == "XSET_page":
+    XSET_page()
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
+
+elif st.session_state.page == "FNC_page":
+    FNC_page()
+    if st.button("Volver a la página principal"):
+        st.session_state.page = "home"
+
+elif st.session_state.page == "TL_page":
+    TL_page()
+    if st.button("Volver a la página principal"):
+        st.session_state.page = "home"
+
+elif st.session_state.page == "LEV_page":
+    LEV_page()
+    if st.button("Volver a la página principal"):
+        st.session_state.page = "home"
+
