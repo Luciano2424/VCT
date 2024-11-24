@@ -193,5 +193,3 @@ elif st.session_state.page == "mejor_rendimiento_por_equipo":
 
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
-    if st.button("Volver a la página principal"):
-        st.session_state.page = "home"
