@@ -71,7 +71,7 @@ if st.session_state.page == "home":
          "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?"]
     )
 
-    # Change page according to the selection in the selectbox
+    # Change page immediately based on the selection
     if page_selection == "Cuál fue el jugador con mejor rendimiento global del torneo":
         st.session_state.page = "mejor_rendimiento"
     elif page_selection == "Cuál fue el jugador con peor rendimiento global del torneo":
