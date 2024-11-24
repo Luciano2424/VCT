@@ -11,6 +11,8 @@ df = pd.read_csv("valorant champions istanbul.csv")
 def mejor_rendimiento():
     filas_seleccionadas = df.iloc[[5]]  # Cambia el índice según tu CSV
     st.dataframe(filas_seleccionadas)
+    image_yay = Image.open("yay.jpg")  # Asegúrate de que el archivo yay.jpg esté en la misma carpeta
+    st.image(image_yay, caption="yay - Mejor rendimiento")
     
     # Volver a la página principal
     if st.button("Volver a la página principal"):
