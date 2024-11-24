@@ -246,3 +246,27 @@ elif st.session_state.page == "LEV_page":
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
+
+if page_selection == "Cuál fue el jugador con mejor rendimiento global del torneo":
+    st.session_state.page = "mejor_rendimiento"
+    mejor_rendimiento()
+    if st.button("Volver a la página principal"):
+    st.session_state.page = "home"
+
+elif page_selection == "Cuál fue el jugador con peor rendimiento global del torneo":
+    st.session_state.page = "peor_rendimiento"
+    peor_rendimiento()
+    if st.button("Volver a la página principal"):
+    st.session_state.page = "home"
+
+elif page_selection == "Cuál fue el jugador con más kills?":
+    st.session_state.page = "mas_kills"
+    mas_kills()
+    if st.button("Volver a la página principal"):
+    st.session_state.page = "home"
+    
+elif page_selection == "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?":
+    st.session_state.page = "mejor_rendimiento_por_equipo"
+    mejor_rendimiento_por_equipo()
+    if st.button("Volver a la página principal"):
+    st.session_state.page = "home"
