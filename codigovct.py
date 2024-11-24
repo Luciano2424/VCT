@@ -73,7 +73,7 @@ def display_image_with_caption(image_path, caption):
 
 # Lógica de la aplicación principal
 if st.session_state.page == "home":  
-    st.title("Datos que creemos te gustarán saber")
+    st.title("Análisis y Estadísticas del VCT Masters Reykjavik 2022: ¡Revive la Emoción del Torneo!")
     
     # URL del video de YouTube
     video_presentación_ = "https://www.youtube.com/watch?v=j2Z4qYJ3Jtc&ab_channel=VALORANTChampionsTour"
