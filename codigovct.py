@@ -101,13 +101,13 @@ if st.session_state.page == "home":
     # Mostrar logos de los equipos
     col1, col2, col3 = st.columns([1, 1, 1]) 
     with col2:
-        display_logo(image_LOUD, "1 LOUD")
+        display_logos(image_LOUD, "1 LOUD")
 
     col4, col5, col6 = st.columns([1, 1, 1])  
     with col4:
-        display_logo(image_OPTC, "2 OPTC")
+        display_logos(image_OPTC, "2 OPTC")
     with col6:
-        display_logo(image_DRX, "3 DRX")
+        display_logos(image_DRX, "3 DRX")
 
     col7, col8, col9, col10, col11 = st.columns([1, 1, 1, 1, 1])  
     with col7:
