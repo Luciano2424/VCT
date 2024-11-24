@@ -57,7 +57,7 @@ def display_image_with_caption(image_path, caption):
     )
 
 if st.session_state.page == "home":  
-    st.title("Datos que creemos te gustarán saber")
+    st.title("Análisis y Estadísticas del VCT Masters Reykjavik 2022: ¡Revive la Emoción del Torneo!")
     
     # URL del video de YouTube
     video_presentación_ = "https://www.youtube.com/watch?v=j2Z4qYJ3Jtc&ab_channel=VALORANTChampionsTour"
@@ -67,13 +67,14 @@ if st.session_state.page == "home":
 
     with col2:
         st.subheader("Presentación de los equipos participantes del toreno")
-        page_selection = st.selectbox(
-            "Datos que creemos te gustarán saber",
-            ["Ház click para desplegar las opciones", "Cuál fue el jugador con mejor rendimiento global del torneo", 
-             "Cuál fue el jugador con peor rendimiento global del torneo", 
-             "Cuál fue el jugador con más kills?", 
-             "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?"]
-        )
+        
+    page_selection = st.selectbox(
+        "Datos que creemos te gustarán saber",
+         ["Ház click para desplegar las opciones", "Cuál fue el jugador con mejor rendimiento global del torneo", 
+         "Cuál fue el jugador con peor rendimiento global del torneo", 
+         "Cuál fue el jugador con más kills?", 
+         "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?"]
+      )
 
         if page_selection == "Cuál fue el jugador con mejor rendimiento global del torneo":
             st.session_state.page = "mejor_rendimiento"
