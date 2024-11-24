@@ -85,24 +85,21 @@ elif st.session_state.page == "mejor_rendimiento":
     st.title("Jugador con mejor rendimiento")
     mejor_rendimiento()
     display_image_with_caption(image_yay, "Presentación yay")
-    page_back = st.selectbox("Volver a la página principal", ["No", "Sí"])
-    if page_back == "Sí":
+    if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
 elif st.session_state.page == "peor_rendimiento":
     st.title("Jugador con rendimiento mas bajo")
     peor_rendimiento()
     display_image_with_caption(image_ANGE1, "Presentación ANGE1")
-    page_back = st.selectbox("Volver a la página principal", ["No", "Sí"])
-    if page_back == "Sí":
+    if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
 elif st.session_state.page == "mas_kills":
     st.title("Jugador con más bajas")
     mas_kills()
     display_image_with_caption(image_yay, "Presentación yay")
-    page_back = st.selectbox("Volver a la página principal", ["No", "Sí"])
-    if page_back == "Sí":
+    if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
 elif st.session_state.page == "mejor_rendimiento_por_equipo":
@@ -136,6 +133,5 @@ elif st.session_state.page == "mejor_rendimiento_por_equipo":
     with col8:
         display_image_with_caption(image_kiNgg, "kiNgg Top 8")
 
-    page_back = st.selectbox("Volver a la página principal", ["No", "Sí"])
-    if page_back == "Sí":
+    if st.button("Volver a la página principal"):
         st.session_state.page = "home"
