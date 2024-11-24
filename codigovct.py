@@ -69,6 +69,11 @@ if st.session_state.page == "home":
     # Mostrar el video de YouTube
     st.video(video_presentación_)
 
+
+col1, col2, col3 = st.columns([1, 3, 1])  
+
+with col2:
+    st.subheader("Presentación de los equipos participantes del toreno", )
     # Replace buttons with selectbox
     page_selection = st.selectbox(
         "Datos que creemos te gustarán saber",
