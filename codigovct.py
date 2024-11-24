@@ -62,34 +62,47 @@ def display_image_with_caption(image_path, caption):
 if st.session_state.page == "home":  
     st.title("Datos que creemos te gustarán saber")
 
-    if st.button("Cuál fue el jugador con mejor rendimiento global del torneo"):
+    # Replace buttons with selectbox
+    page_selection = st.selectbox(
+        "Selecciona una opción:",
+        ["Selecciona", "Cuál fue el jugador con mejor rendimiento global del torneo", 
+         "Cuál fue el jugador con peor rendimiento global del torneo", 
+         "Cuál fue el jugador con más kills?", 
+         "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?"]
+    )
+
+    # Change page according to the selection in the selectbox
+    if page_selection == "Cuál fue el jugador con mejor rendimiento global del torneo":
         st.session_state.page = "mejor_rendimiento"
-    if st.button("Cuál fue el jugador con peor rendimiento global del torneo"):
+    elif page_selection == "Cuál fue el jugador con peor rendimiento global del torneo":
         st.session_state.page = "peor_rendimiento"
-    if st.button("Cuál fue el jugador con más kills?"):
+    elif page_selection == "Cuál fue el jugador con más kills?":
         st.session_state.page = "mas_kills"
-    if st.button("Cuáles fueron los jugadores con mejor rendimiento de cada equipo?"):
+    elif page_selection == "Cuáles fueron los jugadores con mejor rendimiento de cada equipo?":
         st.session_state.page = "mejor_rendimiento_por_equipo"
 
 elif st.session_state.page == "mejor_rendimiento":
     st.title("Jugador con mejor rendimiento")
     mejor_rendimiento()
     display_image_with_caption(image_yay, "Presentación yay")
-    if st.button("Volver a la página principal"):
+    page_back = st.selectbox("Volver a la página principal", ["No", "Sí"])
+    if page_back == "Sí":
         st.session_state.page = "home"
 
 elif st.session_state.page == "peor_rendimiento":
     st.title("Jugador con rendimiento mas bajo")
     peor_rendimiento()
     display_image_with_caption(image_ANGE1, "Presentación ANGE1")
-    if st.button("Volver a la página principal"):
+    page_back = st.selectbox("Volver a la página principal", ["No", "Sí"])
+    if page_back == "Sí":
         st.session_state.page = "home"
 
 elif st.session_state.page == "mas_kills":
     st.title("Jugador con más bajas")
     mas_kills()
     display_image_with_caption(image_yay, "Presentación yay")
-    if st.button("Volver a la página principal"):
+    page_back = st.selectbox("Volver a la página principal", ["No", "Sí"])
+    if page_back == "Sí":
         st.session_state.page = "home"
 
 elif st.session_state.page == "mejor_rendimiento_por_equipo":
@@ -123,5 +136,6 @@ elif st.session_state.page == "mejor_rendimiento_por_equipo":
     with col8:
         display_image_with_caption(image_kiNgg, "kiNgg Top 8")
 
-    if st.button("Volver a la página principal"):
+    page_back = st.selectbox("Volver a la página principal", ["No", "Sí"])
+    if page_back == "Sí":
         st.session_state.page = "home"
