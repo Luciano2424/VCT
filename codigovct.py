@@ -176,4 +176,6 @@ elif st.session_state.page == "mejor_rendimiento_por_equipo":
     with col3:
         display_image_with_caption(image_MaKo, "MaKo Top 3")
     with col4:
-        display_image_with_caption(image_suygetsu, "suygetsu
+        display_image_with_caption(image_suygetsu, "suygetsu")
+    if st.button("Volver a la página principal"):
+        st.session_state.page = "home"
