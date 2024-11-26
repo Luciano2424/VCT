@@ -271,7 +271,10 @@ if e_columns.button("Equipo con mas derrotas del torneo"):
     plt.title('Equipo con mas derrotas del torneo')
     _ = plt.xticks(rotation="horizontal", ha="center")
     st.pyplot(fig)
-    
+
+st.subheader("Si deseas saber más sobre los equipos, revisa las paginas a continuación")
+
+
 col1, col2, col3, col4, col5, col6, col7, col8 = st.columns([1, 1, 1, 1, 1, 1, 1, 1])
 with col1:
     if st.button("LOUD"):
