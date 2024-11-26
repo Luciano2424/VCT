@@ -271,20 +271,28 @@ if e_columns.button("Equipo con mas derrotas del torneo"):
     plt.title('Equipo con mas derrotas del torneo')
     _ = plt.xticks(rotation="horizontal", ha="center")
     st.pyplot(fig)
-
-if st.button("LOUD"):
-    st.experimental_open_url("https://www.vlr.gg/team/6961/loud")
-if st.button("OPTC"):
-    st.experimental_open_url("https://www.vlr.gg/team/8127/optic-gaming")
-if st.button("DRX"):
-    st.experimental_open_url("https://www.vlr.gg/team/8185/drx")
-if st.button("FPX"):
-    st.experimental_open_url("https://www.vlr.gg/team/11328/funplus-phoenix")
-if st.button("XSET"):
-    st.experimental_open_url("https://www.vlr.gg/team/6314/xset")
-if st.button("FANATIC"):
+col1, col2, col3, col4, col5, col6, col7, col8 = st.olumns(1, 1, 1, 1, 1, 1, 1, 1)
+with col1:
+    if st.button("LOUD"):
+        st.experimental_open_url("https://www.vlr.gg/team/6961/loud")
+with col2:
+    if st.button("OPTC"):
+        st.experimental_open_url("https://www.vlr.gg/team/8127/optic-gaming")
+with col3:
+    if st.button("DRX"):
+        st.experimental_open_url("https://www.vlr.gg/team/8185/drx")
+with col4:
+    if st.button("FPX"):
+        st.experimental_open_url("https://www.vlr.gg/team/11328/funplus-phoenix")
+with col5:
+    if st.button("XSET"):
+        st.experimental_open_url("https://www.vlr.gg/team/6314/xset")
+with col6:
+    if st.button("FANATIC"):
     st.experimental_open_url("https://www.vlr.gg/team/2593/fnatic")
-if st.button("TEAMLIQUID"):
-    st.experimental_open_url("https://www.vlr.gg/team/474/team-liquid")
-if st.button("LEVIATAN"):
-    st.experimental_open_url("https://www.vlr.gg/team/2359/leviat-n")
+with col7:
+    if st.button("TEAMLIQUID"):
+        st.experimental_open_url("https://www.vlr.gg/team/474/team-liquid")
+with col8:
+    if st.button("LEVIATAN"):
+        st.experimental_open_url("https://www.vlr.gg/team/2359/leviat-n")
