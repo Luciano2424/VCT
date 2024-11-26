@@ -271,7 +271,8 @@ if e_columns.button("Equipo con mas derrotas del torneo"):
     plt.title('Equipo con mas derrotas del torneo')
     _ = plt.xticks(rotation="horizontal", ha="center")
     st.pyplot(fig)
-col1, col2, col3, col4, col5, col6, col7, col8 = st.olumns(1, 1, 1, 1, 1, 1, 1, 1)
+    
+col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(1, 1, 1, 1, 1, 1, 1, 1)
 with col1:
     if st.button("LOUD"):
         st.experimental_open_url("https://www.vlr.gg/team/6961/loud")
@@ -288,8 +289,8 @@ with col5:
     if st.button("XSET"):
         st.experimental_open_url("https://www.vlr.gg/team/6314/xset")
 with col6:
-    if st.button("FANATIC"):
-    st.experimental_open_url("https://www.vlr.gg/team/2593/fnatic")
+    if st.button("FANATIC"):  # Indent this line properly
+        st.experimental_open_url("https://www.vlr.gg/team/2593/fnatic")  # Indented correctly
 with col7:
     if st.button("TEAMLIQUID"):
         st.experimental_open_url("https://www.vlr.gg/team/474/team-liquid")
