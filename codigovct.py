@@ -289,11 +289,11 @@ with col5:
     if st.button("XSET"):
         st.experimental_open_url("https://www.vlr.gg/team/6314/xset")
 with col6:
-    if st.button("FANATIC"):  # Indent this line properly
+    if st.button("FNC"):  # Indent this line properly
         st.experimental_open_url("https://www.vlr.gg/team/2593/fnatic")  # Indented correctly
 with col7:
-    if st.button("TEAMLIQUID"):
+    if st.button("TL"):
         st.experimental_open_url("https://www.vlr.gg/team/474/team-liquid")
 with col8:
-    if st.button("LEVIATAN"):
+    if st.button("LEV"):
         st.experimental_open_url("https://www.vlr.gg/team/2359/leviat-n")
