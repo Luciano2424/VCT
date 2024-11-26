@@ -209,6 +209,7 @@ elif st.session_state.page == "mejor_rendimiento_por_equipo":
     if st.button("Volver a la página principal"):
         st.session_state.page = "home"
 
+a_columns, b_columns = st.columns(2)
 if a_columns.button("K/D promedio por equipos"):
   fig = plt.figure(figsize=(10, 6))
   kd = df.groupby('Team')['K/D'].mean().sort_values(ascending=False)
