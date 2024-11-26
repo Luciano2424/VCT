@@ -278,25 +278,25 @@ st.subheader("Si deseas saber más sobre los equipos, revisa las paginas a conti
 col1, col2, col3, col4, col5, col6, col7, col8 = st.columns([1, 1, 1, 1, 1, 1, 1, 1])
 with col1:
     if st.button("LOUD"):
-        st.experimental_open_url("https://www.vlr.gg/team/6961/loud")
+        st.markdown("[LOUD](https://www.vlr.gg/team/6961/loud)", unsafe_allow_html=True)
 with col2:
     if st.button("OPTC"):
-        st.experimental_open_url("https://www.vlr.gg/team/8127/optic-gaming")
+        st.markdown("[OPTC](https://www.vlr.gg/team/8127/optic-gaming)", unsafe_allow_html=True)
 with col3:
     if st.button("DRX"):
-        st.experimental_open_url("https://www.vlr.gg/team/8185/drx")
+        st.markdown("[DRX](https://www.vlr.gg/team/8185/drx)", unsafe_allow_html=True)
 with col4:
     if st.button("FPX"):
-        st.experimental_open_url("https://www.vlr.gg/team/11328/funplus-phoenix")
+        st.markdown("[FPX](https://www.vlr.gg/team/11328/funplus-phoenix)", unsafe_allow_html=True)
 with col5:
     if st.button("XSET"):
-        st.experimental_open_url("https://www.vlr.gg/team/6314/xset")
+        st.markdown("[XSET](https://www.vlr.gg/team/6314/xset)", unsafe_allow_html=True)
 with col6:
-    if st.button("FNC"):  # Indent this line properly
-        st.experimental_open_url("https://www.vlr.gg/team/2593/fnatic")  # Indented correctly
+    if st.button("FNC"):
+        st.markdown("[FNC](https://www.vlr.gg/team/2593/fnatic)", unsafe_allow_html=True)
 with col7:
     if st.button("TL"):
-        st.experimental_open_url("https://www.vlr.gg/team/474/team-liquid")
+        st.markdown("[TL](https://www.vlr.gg/team/474/team-liquid)", unsafe_allow_html=True)
 with col8:
     if st.button("LEV"):
-        st.experimental_open_url("https://www.vlr.gg/team/2359/leviat-n")
+        st.markdown("[LEV](https://www.vlr.gg/team/2359/leviat-n)", unsafe_allow_html=True)
