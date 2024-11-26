@@ -272,7 +272,7 @@ if e_columns.button("Equipo con mas derrotas del torneo"):
     _ = plt.xticks(rotation="horizontal", ha="center")
     st.pyplot(fig)
     
-col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(1, 1, 1, 1, 1, 1, 1, 1)
+col1, col2, col3, col4, col5, col6, col7, col8 = st.columns([1, 1, 1, 1, 1, 1, 1, 1])
 with col1:
     if st.button("LOUD"):
         st.experimental_open_url("https://www.vlr.gg/team/6961/loud")
